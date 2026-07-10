@@ -1,0 +1,6 @@
+{
+  "name": "Monospace Digital",
+  "description": "A premium corporate website for Monospace Digital, a Lagos-based digital transformation consultancy specializing in software engineering, performance marketing, and data intelligence.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

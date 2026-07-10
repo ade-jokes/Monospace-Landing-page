@@ -1,0 +1,295 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+:root {
+  --background: #0B0B0F;
+  --surface: #131318;
+  --surface-elevated: #1A1A20;
+  --foreground: #ECECF0;
+  --muted-foreground: #70707B;
+  --border: #232329;
+  
+  /* Primary Accent Brand Color */
+  --accent: #00C853;
+  
+  /* Service Accent Palette */
+  --accent-blue: #0EA5E9;    /* Data Analytics & BI */
+  --accent-violet: #7B61FF;  /* AI & Data Section */
+  --accent-amber: #F5A623;   /* Performance Marketing */
+  --accent-coral: #FF5A5F;   /* Growth Marketing */
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-foreground: var(--foreground);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-blue: var(--accent-blue);
+  --color-accent-violet: var(--accent-violet);
+  --color-accent-amber: var(--accent-amber);
+  --color-accent-coral: var(--accent-coral);
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Global Reset & Performance Enhancements */
+html {
+  scroll-behavior: smooth;
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--background);
+  color: var(--foreground);
+  overflow-x: hidden;
+  line-height: 1.5;
+}
+
+/* Custom selection */
+::selection {
+  background-color: var(--accent);
+  color: var(--background);
+}
+
+/* Micro-animations and helpers */
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 200, 83, 0.35);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(0, 200, 83, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 200, 83, 0);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2.5s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+/* Custom easing function */
+.cubic-bezier-custom {
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Raycast style Orb Floating animations */
+@keyframes orbFloat1 {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-24px);
+  }
+}
+
+@keyframes orbFloat2 {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-24px);
+  }
+}
+
+@keyframes orbFloat3 {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-24px);
+  }
+}
+
+.animate-orb-1 {
+  animation: orbFloat1 7s ease-in-out infinite;
+}
+
+.animate-orb-2 {
+  animation: orbFloat2 9s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+.animate-orb-3 {
+  animation: orbFloat3 8s ease-in-out infinite;
+  animation-delay: 4s;
+}
+
+/* Ambient light orb styling */
+.ambient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Hide scrollbar for clean visual appearance where needed */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Blinking cursor for typing text */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.typing-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.1em;
+  background-color: var(--accent);
+  margin-left: 4px;
+  animation: blink 0.8s infinite;
+  vertical-align: middle;
+}
+
+/* EFFECT 2: Border trace mask */
+.border-trace-mask {
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+/* EFFECT 4: Button shimmer sweep */
+.shimmer-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.22), transparent);
+  transform: translateX(-150%) skewX(-20deg);
+  pointer-events: none;
+}
+
+@keyframes shimmerSweep {
+  0% {
+    transform: translateX(-150%) skewX(-20deg);
+  }
+  100% {
+    transform: translateX(250%) skewX(-20deg);
+  }
+}
+
+@media (hover: hover) {
+  .shimmer-btn:hover::after {
+    animation: shimmerSweep 500ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+}
+
+/* EFFECT 5: Navbar link underline grow */
+.nav-underline-grow {
+  position: relative;
+}
+
+.nav-underline-grow::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: #00C853;
+  border-radius: 2px;
+  transform: translateX(-50%);
+  transition: width 200ms ease;
+  pointer-events: none;
+}
+
+@media (hover: hover) {
+  .nav-underline-grow:hover::after {
+    width: 100%;
+  }
+}
+
+/* EFFECT 8: Stat card number glow on hover */
+.stat-card-hover {
+  transition: border-color 200ms ease, background-color 200ms ease, transform 200ms ease;
+}
+
+.stat-card-hover .stat-number {
+  transition: transform 200ms ease, filter 200ms ease, text-shadow 200ms ease;
+}
+
+@media (hover: hover) {
+  .stat-card-hover:hover {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    border-color: rgba(0, 200, 83, 0.25) !important;
+    transform: translateY(-2px); /* visual lift */
+  }
+  .stat-card-hover:hover .stat-number {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 20px rgba(0, 200, 83, 0.5));
+    text-shadow: 0 0 20px rgba(0, 200, 83, 0.5);
+  }
+}
+
+/* EFFECT 9: Infinite Horizontal Marquee for Client Logos */
+.marquee-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.marquee-container::before,
+.marquee-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 160px;
+  height: 100%;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.marquee-container::before {
+  left: 0;
+  background: linear-gradient(to right, #0B0B0F 0%, transparent 100%);
+}
+
+.marquee-container::after {
+  right: 0;
+  background: linear-gradient(to left, #0B0B0F 0%, transparent 100%);
+}
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 32s linear infinite;
+}
+
+@media (hover: hover) {
+  .marquee-track:hover {
+    animation-play-state: paused;
+  }
+}
+
+
