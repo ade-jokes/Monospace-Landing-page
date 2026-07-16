@@ -1,20 +1,57 @@
 import React, { useState, useEffect } from "react";
 import { ScrollReveal } from "./SharedAnimations";
+import { api } from "../utils/api";
+import { analytics } from "../utils/analytics";
 
 export default function ClosingCTA() {
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formData, setFormData] = useState({ name: "", email: "", msg: "" });
   const [isSectionHovered, setIsSectionHovered] = useState(false);
   const [isHoverSupported, setIsHoverSupported] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     setIsHoverSupported(window.matchMedia("(hover: hover)").matches);
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (formData.name && formData.email) {
-      setFormSubmitted(true);
+    setError("");
+
+    if (!formData.name || !formData.email) {
+      setError("Name and email are required");
+      return;
+    }
+
+    setIsLoading(true);
+
+    try {
+      // Track form submission attempt
+      await analytics.trackFormInteraction("closing_cta", "submit");
+
+      // Submit to backend
+      const response = await api.submitContact({
+        name: formData.name,
+        email: formData.email,
+        msg: formData.msg,
+      });
+
+      if (response.success) {
+        setFormSubmitted(true);
+        setFormData({ name: "", email: "", msg: "" });
+
+        // Track successful submission
+        await analytics.trackEvent("form_submitted", { formType: "closing_cta" });
+      } else {
+        setError(response.error || "Failed to submit form");
+      }
+    } catch (err) {
+      console.error("Form submission error:", err);
+      setError("Failed to submit form. Please try again.");
+      await analytics.trackError("form_submission_failed", String(err));
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -120,12 +157,21 @@ export default function ClosingCTA() {
                 />
               </div>
 
+              {error && (
+                <div className="bg-red-500/10 border border-red-500/30 rounded-[8px] p-3 text-red-400 text-[14px] mb-4">
+                  {error}
+                </div>
+              )}
+
               <div className="text-center pt-2">
                 <button
                   type="submit"
-                  className="shimmer-btn animate-pulse-glow w-full bg-[#00C853] text-[#080808] font-bold text-[16px] px-[36px] py-[15px] rounded-[10px] transition-all duration-200 hover:bg-[#00A844] hover:-translate-y-[2px] hover:shadow-[0_12px_36px_rgba(0,200,83,0.28)] cursor-pointer"
+                  disabled={isLoading}
+                  className={`shimmer-btn animate-pulse-glow w-full ${
+                    isLoading ? "bg-[#666] cursor-not-allowed" : "bg-[#00C853] hover:bg-[#00A844] hover:-translate-y-[2px] hover:shadow-[0_12px_36px_rgba(0,200,83,0.28)]"
+                  } text-[#080808] font-bold text-[16px] px-[36px] py-[15px] rounded-[10px] transition-all duration-200 cursor-pointer`}
                 >
-                  Start the conversation →
+                  {isLoading ? "Sending..." : "Start the conversation →"}
                 </button>
               </div>
             </form>

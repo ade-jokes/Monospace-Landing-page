@@ -1,7 +1,13 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { SectionHeader } from "./SharedAnimations";
 import InteractiveCard from "./InteractiveCard";
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { api } from "../utils/api";
+import { analytics } from "../utils/analytics";
+import { register3DTilt } from "../utils/tiltEffect";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function CaseStudies() {
   const containerRef = useRef<HTMLDivElement>(null);

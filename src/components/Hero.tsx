@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { AnimatedCounter } from "./SharedAnimations";
 import StripeCanvas from "./StripeCanvas";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { analytics } from "../utils/analytics";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Hero() {
   const [mounted, setMounted] = useState(false);
@@ -9,6 +14,7 @@ export default function Hero() {
     // Staggered entrance sequence starts on mount
     const timer = setTimeout(() => {
       setMounted(true);
+      analytics.trackComponentView("hero");
     }, 50);
     return () => clearTimeout(timer);
   }, []);
@@ -81,29 +87,30 @@ export default function Hero() {
           </span>
         </div>
 
-        {/* Headline: opacity 0 -> 1, translateY(32px) -> 0, 700ms, delay 150ms */}
+        {/* Headline: opacity 0 -> 1, translateY(32px) -> 0, 700ms, delay 150ms - EQUINOX STYLE */}
         <h1
           style={{
-            fontSize: "clamp(3.5rem, 7vw, 6.5rem)",
+            fontSize: "clamp(4.2rem, 9vw, 7.5rem)",
             transition: "all 700ms cubic-bezier(0.16, 1, 0.3, 1)",
             transitionDelay: "150ms",
+            lineHeight: "0.95",
           }}
-          className={`font-extrabold text-[#ECECF0] leading-[1.02] tracking-[-0.04em] max-w-[880px] mx-auto mb-[20px] ${
+          className={`font-extrabold text-[#ECECF0] tracking-[-0.05em] max-w-[1000px] mx-auto mb-[20px] ${
             mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[32px]"
           }`}
         >
-          The growth engine for{" "}
+          ENGINEERED<br />
           <span
             className="bg-clip-text text-transparent"
             style={{
-              background: "linear-gradient(135deg, #635BFF 0%, #00C853 100%)",
+              background: "linear-gradient(135deg, #00FF88 0%, #00FFFF 50%, #00C853 100%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
+              fontSize: "1.15em",
             }}
           >
-            African businesses
+            BEYOND PRECISION
           </span>
-          .
         </h1>
 
         {/* Subheadline: opacity 0 -> 1, translateY(20px) -> 0, 600ms, delay 300ms */}
@@ -112,7 +119,7 @@ export default function Hero() {
             transition: "all 600ms cubic-bezier(0.16, 1, 0.3, 1)",
             transitionDelay: "300ms",
           }}
-          className={`text-[18px] text-[#6B7280] max-w-[540px] mx-auto mb-[36px] leading-[1.72] font-normal ${
+          className={`text-[16px] text-[#A0A0B0] max-w-[620px] mx-auto mb-[44px] leading-[1.68] font-normal ${
             mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[20px]"
           }`}
         >

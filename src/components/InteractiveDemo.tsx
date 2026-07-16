@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Play, Send, Check, Sparkles } from "lucide-react";
+import { api } from "../utils/api";
+import { analytics } from "../utils/analytics";
 
 interface ChatMessage {
   id: number;
@@ -130,7 +132,7 @@ export default function InteractiveDemo() {
     setActiveScreen(index);
   };
 
-  const handleSendMessage = (text: string) => {
+  const handleSendMessage = async (text: string) => {
     if (!text.trim() || isTyping) return;
     setUserInteracted(true);
     
@@ -144,16 +146,33 @@ export default function InteractiveDemo() {
     setCustomPrompt("");
     setIsTyping(true);
 
-    setTimeout(() => {
-      const responseText = presetResponses[text] || "I've processed your request. Let's adjust your current budget by +15% to leverage high CTR placements and expand the Victoria Island geographical targeting.";
+    // Track AI interaction
+    await analytics.trackAIInteraction("chat_message", { prompt: text });
+
+    try {
+      // Try to use Gemini AI API first
+      const response = await api.chatWithAI(text);
+      const responseText = response.response || "I've processed your request. Let's adjust your current budget by +15% to leverage high CTR placements and expand the Victoria Island geographical targeting.";
+      
       const newAiMsg: ChatMessage = {
         id: Date.now() + 1,
         sender: "ai",
         text: responseText
       };
       setChatMessages(prev => [...prev, newAiMsg]);
+    } catch (error) {
+      console.error("AI response error:", error);
+      // Fallback to preset responses if API fails
+      const fallbackResponse = presetResponses[text] || "I've processed your request. Let's adjust your current budget by +15% to leverage high CTR placements and expand the Victoria Island geographical targeting.";
+      const newAiMsg: ChatMessage = {
+        id: Date.now() + 1,
+        sender: "ai",
+        text: fallbackResponse
+      };
+      setChatMessages(prev => [...prev, newAiMsg]);
+    } finally {
       setIsTyping(false);
-    }, 1500);
+    }
   };
 
   // SVG Chart path calculation based on selected metric

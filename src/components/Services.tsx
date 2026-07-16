@@ -1,14 +1,21 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Search, ChevronLeft, ChevronRight, Clock, Layers, DollarSign, FileText } from "lucide-react";
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import InteractiveCard from "./InteractiveCard";
+import { api } from "../utils/api";
+import { analytics } from "../utils/analytics";
+import { register3DTilt } from "../utils/tiltEffect";
+
+gsap.registerPlugin(ScrollTrigger);
 
 // All 48 services as requested
 interface ServiceItem {
+  id?: number;
   title: string;
   duration: string;
   tag: string;
-  plusBadge: string;
+  plusBadge?: string;
   category: string;
   price: string;
   contract: string;
