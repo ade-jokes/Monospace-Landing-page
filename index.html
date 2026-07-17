@@ -570,7 +570,7 @@
     }
 
     .service-text-side {
-      flex: 1.1;
+      flex: 1;
       max-width: 480px;
     }
 
@@ -600,30 +600,31 @@
 
     .service-tag {
       font-family: var(--font-mono);
+      font-weight: 700;
       font-size: 11px;
       color: var(--lime-primary);
-      font-weight: 700;
       letter-spacing: 0.1em;
     }
 
     .service-visual-side {
-      flex: 0.9;
+      flex: 1.2;
       display: flex;
       justify-content: center;
       align-items: center;
+      width: 100%;
     }
 
     .service-visual-panel {
       width: 100%;
-      max-width: 420px;
-      height: 240px;
+      max-width: 540px;
+      height: auto;
       background-color: transparent;
-      padding: 10px;
+      padding: 0;
       position: relative;
       overflow: hidden;
-      transition: transform 0.1s ease-out;
+      transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1);
       transform-style: preserve-3d;
-      perspective: 800px;
+      perspective: 1000px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -1631,7 +1632,7 @@
             <span class="service-tag">GROWTH</span>
           </div>
           <div class="service-visual-side">
-            <div class="service-visual-panel" style="background-color: transparent; border: none; border-radius: 12px; max-width: 460px; height: auto;">
+            <div class="service-visual-panel" style="background-color: transparent; border: none; border-radius: 12px; max-width: 540px; height: auto; width: 100%;">
               <img src="images/Perfomance marketing section.svg" alt="Performance Marketing" style="width:100%;height:100%;object-fit:contain;display:block;">
             </div>
           </div>
@@ -1646,7 +1647,7 @@
             <span class="service-tag">BUILD</span>
           </div>
           <div class="service-visual-side">
-            <div class="service-visual-panel" style="background-color: transparent; border: none; border-radius: 12px; max-width: 460px; height: auto;">
+            <div class="service-visual-panel" style="background-color: transparent; border: none; border-radius: 12px; max-width: 540px; height: auto; width: 100%;">
               <img src="images/Web and App Development.svg" alt="Web and App Development" style="width:100%;height:100%;object-fit:contain;display:block;">
             </div>
           </div>
@@ -1661,7 +1662,7 @@
             <span class="service-tag">AUTOMATE</span>
           </div>
           <div class="service-visual-side">
-            <div class="service-visual-panel" style="background-color: transparent; border: none; border-radius: 12px; max-width: 520px; height: auto; width: 100%;">
+            <div class="service-visual-panel" style="background-color: transparent; border: none; border-radius: 12px; max-width: 580px; height: auto; width: 100%;">
               <img src="images/AI and Automation.svg" alt="AI and Automation" style="width:100%;height:100%;object-fit:contain;display:block;">
             </div>
           </div>
@@ -1676,7 +1677,7 @@
             <span class="service-tag">INSIGHT</span>
           </div>
           <div class="service-visual-side">
-            <div class="service-visual-panel" style="background-color: transparent; border: none; border-radius: 12px; max-width: 460px; height: auto; width: 100%;">
+            <div class="service-visual-panel" style="background-color: transparent; border: none; border-radius: 12px; max-width: 540px; height: auto; width: 100%;">
               <img src="images/Data Anaytics and BI.svg" alt="Data Analytics & BI" style="width:100%;height:100%;object-fit:contain;display:block;">
             </div>
           </div>
@@ -1691,7 +1692,7 @@
             <span class="service-tag">REACH</span>
           </div>
           <div class="service-visual-side">
-            <div class="service-visual-panel" style="background-color: transparent; border: none; border-radius: 12px; max-width: 460px; height: auto; width: 100%;">
+            <div class="service-visual-panel" style="background-color: transparent; border: none; border-radius: 12px; max-width: 540px; height: auto; width: 100%;">
               <img src="images/Content and SEO.svg" alt="Content & SEO" style="width:100%;height:100%;object-fit:contain;display:block;">
             </div>
           </div>
@@ -1706,7 +1707,7 @@
             <span class="service-tag">STRATEGY</span>
           </div>
           <div class="service-visual-side">
-            <div class="service-visual-panel" style="background-color: transparent; border: none; border-radius: 12px; max-width: 460px; height: auto; width: 100%;">
+            <div class="service-visual-panel" style="background-color: transparent; border: none; border-radius: 12px; max-width: 540px; height: auto; width: 100%;">
               <img src="images/Product Strategy.svg" alt="Product Strategy" style="width:100%;height:100%;object-fit:contain;display:block;">
             </div>
           </div>
@@ -2241,10 +2242,10 @@
             const y = e.clientY - rect.top;
             const rotateX = -((y - rect.height / 2) / rect.height) * 12;
             const rotateY = ((x - rect.width / 2) / rect.width) * 12;
-            panel.style.transform = 'perspective(800px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg)';
+            panel.style.transform = 'perspective(1000px) scale(1.04) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg)';
           });
           panel.addEventListener('mouseleave', function() {
-            panel.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg)';
+            panel.style.transform = 'perspective(1000px) scale(1) rotateX(0deg) rotateY(0deg)';
           });
         });
 
@@ -2333,17 +2334,39 @@
         });
       });
 
-      // Services slide-up staggered transition
-      gsap.utils.toArray('.service-row').forEach(function(row) {
-        gsap.from(row, {
+      // Services staggered entrance with premium 3D slide-ins
+      gsap.utils.toArray('.service-row').forEach(function(row, idx) {
+        const isEven = idx % 2 === 0;
+        const textCol = row.querySelector('.service-text-side');
+        const visualCol = row.querySelector('.service-visual-panel');
+        
+        const textX = isEven ? -50 : 50;
+        const visualX = isEven ? 50 : -50;
+        const rotateY = isEven ? -15 : 15;
+
+        gsap.from(textCol, {
           scrollTrigger: {
             trigger: row,
-            start: 'top 80%',
+            start: 'top 82%',
             toggleActions: 'play none none none'
           },
           opacity: 0,
-          y: 35,
-          duration: 0.7,
+          x: textX,
+          duration: 0.85,
+          ease: 'power2.out'
+        });
+
+        gsap.from(visualCol, {
+          scrollTrigger: {
+            trigger: row,
+            start: 'top 82%',
+            toggleActions: 'play none none none'
+          },
+          opacity: 0,
+          x: visualX,
+          scale: 0.92,
+          rotationY: rotateY,
+          duration: 0.95,
           ease: 'power2.out'
         });
       });
