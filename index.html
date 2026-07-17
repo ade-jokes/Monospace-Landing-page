@@ -278,12 +278,14 @@
       background-color: rgba(0, 255, 0, 0.08);
     }
 
-    /* Hero Section with Reduced Top Spacing */
+    /* Hero Section with Optimized Bottom Spacing */
     .hero-section {
       background: radial-gradient(circle at 80% 20%, #161616 0%, #0D0D0D 40%, var(--bg-dark-1) 100%);
       min-height: 100vh;
       display: flex;
       align-items: center;
+      padding-top: 0;
+      padding-bottom: 60px;
     }
 
     .hero-video-bg {
@@ -310,8 +312,8 @@
       grid-template-columns: 1fr;
       gap: 80px;
       align-items: center;
-      padding-top: 100px; /* Reduced from 140px to sit higher */
-      padding-bottom: 100px;
+      padding-top: 100px;
+      padding-bottom: 40px;
       position: relative;
       z-index: 2;
     }
@@ -543,7 +545,7 @@
       display: flex;
       flex-direction: column;
       gap: 60px;
-      padding: 60px 0;
+      padding: 80px 0;
       border-bottom: 1px solid rgba(255, 255, 255, 0.04);
     }
 
@@ -558,12 +560,18 @@
       }
     }
 
+    @media (min-width: 1024px) {
+      .service-row {
+        gap: 120px;
+      }
+    }
+
     .service-row:last-child {
       border-bottom: none;
     }
 
     .service-text-side {
-      flex: 1;
+      flex: 1.1;
       max-width: 480px;
     }
 
@@ -600,28 +608,29 @@
     }
 
     .service-visual-side {
-      flex: 1;
+      flex: 0.9;
       display: flex;
       justify-content: center;
       align-items: center;
     }
 
-    /* Open Visual panels with NO border cards */
     .service-visual-panel {
       width: 100%;
       max-width: 420px;
       height: 240px;
-      background-color: #0F0F0F;
-      border-radius: 12px;
-      padding: 24px;
+      background-color: transparent;
+      padding: 10px;
       position: relative;
       overflow: hidden;
       transition: transform 0.1s ease-out;
       transform-style: preserve-3d;
       perspective: 800px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: left;
     }
 
-    /* Concept UI Mockups */
     .cpc-mockup-bar {
       height: 8px;
       background-color: var(--lime-primary);
@@ -1034,49 +1043,50 @@
     }
 
     .case-study-metric {
-      font-size: 40px;
+      font-size: 56px; /* Magnified from 40px to stand out clearly */
       font-weight: 800;
       line-height: 1;
     }
 
     .case-study-metric-label {
       font-family: var(--font-mono);
-      font-size: 12px;
-      color: var(--text-muted);
+      font-size: 13px; /* Slightly scaled up for legibility */
+      color: #888888; /* Lighter shade for high visibility */
       margin-top: 4px;
     }
 
-    /* Timeline Section (WHITE Background & DARK text styling) */
-    .timeline-section {
-      background-color: #FFFFFF;
-      color: #080808;
+    /* Timeline Section (WHITE Background & DARK text styling with specificity override) */
+    #timeline.timeline-section {
+      background-color: #FFFFFF !important;
+      background: #FFFFFF !important;
+      color: #080808 !important;
       padding: 140px 2rem;
     }
 
-    .timeline-container {
+    #timeline .timeline-container {
       position: relative;
       max-width: 800px;
       margin: 80px auto 0;
       padding: 40px 0;
     }
 
-    .timeline-line {
+    #timeline .timeline-line {
       position: absolute;
       left: 50%;
       top: 0;
       bottom: 0;
       width: 1px;
-      background-color: rgba(0, 180, 0, 0.20); /* Light green 20% opacity */
+      background-color: rgba(0, 180, 0, 0.20) !important;
       transform: translateX(-50%);
       transform-origin: top center;
     }
 
-    .timeline-list {
+    #timeline .timeline-list {
       display: flex;
       flex-direction: column;
     }
 
-    .timeline-item {
+    #timeline .timeline-item {
       margin-bottom: 60px;
       position: relative;
       width: 50%;
@@ -1084,78 +1094,78 @@
       text-align: right;
     }
 
-    .timeline-item:nth-child(even) {
+    #timeline .timeline-item:nth-child(even) {
       left: 50%;
       padding-right: 0;
       padding-left: 40px;
       text-align: left;
     }
 
-    .timeline-connector {
+    #timeline .timeline-connector {
       width: 20px;
       height: 1px;
-      background-color: rgba(0, 180, 0, 0.20);
+      background-color: rgba(0, 180, 0, 0.20) !important;
       position: absolute;
       right: 0;
       top: 12px;
     }
 
-    .timeline-item:nth-child(even) .timeline-connector {
+    #timeline .timeline-item:nth-child(even) .timeline-connector {
       left: 0;
       right: auto;
     }
 
-    .timeline-year {
+    #timeline .timeline-year {
       font-family: var(--font-mono);
       font-weight: 700;
       font-size: 13px;
-      color: #00AA00; /* Darker green for white background readability */
+      color: #00AA00 !important;
       margin-bottom: 8px;
     }
 
-    .timeline-title {
+    #timeline .timeline-title {
       font-size: 17px;
       font-weight: 700;
       margin-bottom: 6px;
-      color: #080808;
+      color: #080808 !important;
     }
 
-    .timeline-desc {
+    #timeline .timeline-desc {
       font-size: 14px;
-      color: #666666;
+      color: #666666 !important;
       line-height: 1.6;
       max-width: 280px;
       display: inline-block;
     }
 
-    .timeline-item:nth-child(even) .timeline-desc {
+    #timeline .timeline-item:nth-child(even) .timeline-desc {
       text-align: left;
     }
 
     @media (max-width: 767px) {
-      .timeline-line {
+      #timeline .timeline-line {
         left: 20px;
       }
-      .timeline-item {
+      #timeline .timeline-item {
         width: 100%;
         text-align: left !important;
         padding-left: 40px !important;
         padding-right: 0 !important;
       }
-      .timeline-item:nth-child(even) {
+      #timeline .timeline-item:nth-child(even) {
         left: 0;
       }
-      .timeline-connector {
+      #timeline .timeline-connector {
         left: 20px !important;
         right: auto !important;
       }
-      .timeline-desc {
+      #timeline .timeline-desc {
         max-width: 100%;
         text-align: left !important;
       }
     }
 
-    /* Process Section */
+    /* Process Section with High-Contrast Step Numbers */
     .process-section {
       background: radial-gradient(circle at top left, #141414 0%, #0D0D0D 60%, var(--bg-dark-1) 100%);
       padding: 140px 2rem;
@@ -1183,7 +1193,7 @@
       font-family: var(--font-mono);
       font-weight: 700;
       font-size: 48px;
-      color: rgba(0, 255, 0, 0.15);
+      color: rgba(0, 255, 0, 0.40); /* Boosted opacity for readability */
       line-height: 1;
       margin-bottom: 16px;
     }
@@ -1469,7 +1479,7 @@
   </header>
 
   <!-- Hero Section -->
-  <section class="hero-section">
+  <section id="hero" class="hero-section">
     <!-- Background video has NO controls, autoplay muted loop playsinline only -->
     <video class="hero-video-bg" autoplay muted loop playsinline src="https://monospacedigital.com/videos/background3.mp4"></video>
     <div class="hero-video-overlay"></div>
@@ -1511,29 +1521,36 @@
         <div class="visual-wrapper-3d">
           
           <!-- Conversion Rates Visual coded with clean HTML/CSS elements -->
-          <div class="card-tilted-main visual-dashboard-card" style="background-color: #0F0F0F; border: 1px solid var(--border-mid); border-radius: 14px; padding: 20px; box-shadow: 0 40px 80px rgba(0, 0, 0, 0.7); position: relative; font-family: var(--font-sans); text-align: left; height: 260px; display: flex; flex-direction: column; justify-content: space-between;">
+          <div class="card-tilted-main visual-dashboard-card" style="background-color: #0F0F0F; border: 1px solid var(--border-mid); border-radius: 14px; padding: 24px; box-shadow: 0 40px 80px rgba(0, 0, 0, 0.7); position: relative; font-family: var(--font-sans); text-align: left; height: 320px; display: flex; flex-direction: column; justify-content: space-between; z-index: 5;">
+            
+            <!-- Dashboard header -->
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <span style="color: #666; font-family: var(--font-mono); font-size: 9px; text-transform: uppercase; letter-spacing: 0.05em;">Conversion Dashboard</span>
+              <span style="color: var(--lime-primary); font-family: var(--font-mono); font-size: 8px; display: inline-flex; align-items: center; gap: 4px; font-weight: 700;"><span style="width: 4px; height: 4px; background: var(--lime-primary); border-radius: 50%;"></span>LIVE</span>
+            </div>
+
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
-              <div style="background: #141414; border-radius: 6px; padding: 6px 8px; border: 1px solid rgba(0, 255, 0, 0.05);">
-                <div style="color: var(--lime-primary); font-size: 14px; font-weight: 800; font-family: var(--font-sans);">38.94%</div>
-                <div style="color: #666; font-size: 8px; font-family: var(--font-mono); text-transform: uppercase;">User Growth</div>
+              <div style="background: linear-gradient(135deg, #161616 0%, #0F0F0F 100%); border-radius: 6px; padding: 8px 10px; border: 1px solid rgba(0, 255, 0, 0.08);">
+                <div style="color: var(--lime-primary); font-size: 15px; font-weight: 800; font-family: var(--font-sans);">38.94%</div>
+                <div style="color: #555; font-size: 8px; font-family: var(--font-mono); text-transform: uppercase; margin-top: 2px;">User Growth</div>
               </div>
-              <div style="background: #141414; border-radius: 6px; padding: 6px 8px; border: 1px solid rgba(0, 255, 0, 0.05);">
-                <div style="color: var(--lime-mid); font-size: 14px; font-weight: 800; font-family: var(--font-sans);">43.59%</div>
-                <div style="color: #666; font-size: 8px; font-family: var(--font-mono); text-transform: uppercase;">CPC Reduction</div>
+              <div style="background: linear-gradient(135deg, #161616 0%, #0F0F0F 100%); border-radius: 6px; padding: 8px 10px; border: 1px solid rgba(0, 255, 0, 0.08);">
+                <div style="color: var(--lime-mid); font-size: 15px; font-weight: 800; font-family: var(--font-sans);">43.59%</div>
+                <div style="color: #555; font-size: 8px; font-family: var(--font-mono); text-transform: uppercase; margin-top: 2px;">CPC Reduction</div>
               </div>
-              <div style="background: #141414; border-radius: 6px; padding: 6px 8px; border: 1px solid rgba(0, 255, 0, 0.05);">
-                <div style="color: var(--lime-deep); font-size: 14px; font-weight: 800; font-family: var(--font-sans);">346%</div>
-                <div style="color: #666; font-size: 8px; font-family: var(--font-mono); text-transform: uppercase;">Sales Increase</div>
+              <div style="background: linear-gradient(135deg, #161616 0%, #0F0F0F 100%); border-radius: 6px; padding: 8px 10px; border: 1px solid rgba(0, 255, 0, 0.08);">
+                <div style="color: var(--lime-deep); font-size: 15px; font-weight: 800; font-family: var(--font-sans);">346%</div>
+                <div style="color: #555; font-size: 8px; font-family: var(--font-mono); text-transform: uppercase; margin-top: 2px;">Sales Increase</div>
               </div>
-              <div style="background: #141414; border-radius: 6px; padding: 6px 8px; border: 1px solid rgba(0, 255, 0, 0.05);">
-                <div style="color: #F0F0F0; font-size: 14px; font-weight: 800; font-family: var(--font-sans);">2.4M</div>
-                <div style="color: #666; font-size: 8px; font-family: var(--font-mono); text-transform: uppercase;">Impressions</div>
+              <div style="background: linear-gradient(135deg, #161616 0%, #0F0F0F 100%); border-radius: 6px; padding: 8px 10px; border: 1px solid rgba(0, 255, 0, 0.08);">
+                <div style="color: #F0F0F0; font-size: 15px; font-weight: 800; font-family: var(--font-sans);">2.4M</div>
+                <div style="color: #555; font-size: 8px; font-family: var(--font-mono); text-transform: uppercase; margin-top: 2px;">Impressions</div>
               </div>
             </div>
             
             <div style="position: relative; margin-top: 10px; height: 80px;">
               <svg width="100%" height="60" viewBox="0 0 300 60" preserveAspectRatio="none">
-                <!-- Second chart line in rgba(0,255,0,0.20) as a comparison line -->
+                <!-- Second chart line in rgba(0, 255, 0, 0.20) as a comparison line -->
                 <path d="M 0 45 Q 60 50, 120 40 T 240 30 T 300 20" fill="none" stroke="rgba(0, 255, 0, 0.20)" stroke-width="1.5"></path>
                 <!-- Main green line with dots at data points -->
                 <path d="M 0 55 L 60 50 L 120 35 L 180 25 L 240 12 L 300 5" fill="none" stroke="var(--lime-primary)" stroke-width="2"></path>
@@ -1604,7 +1621,7 @@
       </p>
       
       <div class="services-list">
-        <!-- Service 1 -->
+        <!-- Service 1: Performance Marketing -->
         <div class="service-row">
           <div class="service-text-side">
             <div class="service-num">01 —</div>
@@ -1614,16 +1631,33 @@
           </div>
           <div class="service-visual-side">
             <div class="service-visual-panel">
-              <div style="font-family: var(--font-mono); font-size: 11px; color: var(--lime-primary); margin-bottom: 12px; position: relative; z-index: 1;">$ analytics_daemon --feed</div>
-              <div class="cpc-mockup-bar" style="width: 85%; position: relative; z-index: 1;"></div>
-              <div class="cpc-mockup-bar" style="width: 45%; background-color: var(--lime-mid); position: relative; z-index: 1;"></div>
-              <div class="cpc-mockup-bar" style="width: 65%; background-color: var(--lime-deep); position: relative; z-index: 1;"></div>
-              <div style="margin-top: 20px; font-size: 12px; color: var(--text-secondary); position: relative; z-index: 1;">Conversion conversion_rates.csv compiled.</div>
+              <!-- Coded trendline and ROAS metrics -->
+              <div style="font-family: var(--font-mono); font-size: 11px; color: var(--lime-primary); margin-bottom: 14px;">$ ads_engine --live_stats</div>
+              
+              <div style="display: flex; gap: 14px; margin-bottom: 16px;">
+                <div>
+                  <div style="color: #FFF; font-size: 18px; font-weight: 800;">4.8x</div>
+                  <div style="color: #666; font-size: 8px; font-family: var(--font-mono);">AVG ROAS</div>
+                </div>
+                <div>
+                  <div style="color: var(--lime-primary); font-size: 18px; font-weight: 800;">-43.59%</div>
+                  <div style="color: #666; font-size: 8px; font-family: var(--font-mono);">CPA REDUCTION</div>
+                </div>
+              </div>
+
+              <div style="height: 60px; width: 100%;">
+                <svg width="100%" height="100%" viewBox="0 0 300 60" preserveAspectRatio="none">
+                  <path d="M 0 50 Q 75 40, 150 25 T 300 5" fill="none" stroke="var(--lime-primary)" stroke-width="2"></path>
+                  <path d="M 0 50 Q 75 40, 150 25 T 300 5 L 300 60 L 0 60 Z" fill="rgba(0, 255, 0, 0.04)"></path>
+                  <circle cx="150" cy="25" r="3" fill="var(--lime-primary)"></circle>
+                  <circle cx="300" cy="5" r="3" fill="var(--lime-primary)"></circle>
+                </svg>
+              </div>
             </div>
           </div>
         </div>
         
-        <!-- Service 2 -->
+        <!-- Service 2: Web & App Development -->
         <div class="service-row">
           <div class="service-text-side">
             <div class="service-num">02 —</div>
@@ -1633,15 +1667,25 @@
           </div>
           <div class="service-visual-side">
             <div class="service-visual-panel">
-              <div class="code-mockup-line" style="color: var(--lime-primary); position: relative; z-index: 1;">const monospace = new Agency();</div>
-              <div class="code-mockup-line" style="position: relative; z-index: 1;">monospace.locate("Lekki, Lagos");</div>
-              <div class="code-mockup-line" style="position: relative; z-index: 1;">monospace.optimize("pipeline");</div>
-              <div class="code-mockup-line" style="color: var(--lime-mid); position: relative; z-index: 1;">return monospace.buildFinished();</div>
+              <!-- Coded IDE simulation layout -->
+              <div style="display: flex; gap: 8px; margin-bottom: 12px; font-family: var(--font-mono); font-size: 10px; color: #555;">
+                <span style="color: var(--lime-primary); border-bottom: 1px solid var(--lime-primary); padding-bottom: 2px;">app.js</span>
+                <span>index.html</span>
+                <span>styles.css</span>
+              </div>
+              <div style="font-family: var(--font-mono); font-size: 11px; line-height: 1.6; color: #888; background: #0E0E0E; padding: 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.03);">
+                <div><span style="color: var(--lime-primary);">import</span> { <span style="color: #FFF;">createEngine</span> } <span style="color: var(--lime-primary);">from</span> <span style="color: var(--lime-deep);">"monospace"</span>;</div>
+                <div style="margin-top: 4px;"><span style="color: var(--lime-primary);">const</span> engine = <span style="color: var(--lime-mid);">createEngine</span>({</div>
+                <div style="padding-left: 16px; color: #666;">scale: <span style="color: var(--lime-primary);">"auto"</span>,</div>
+                <div style="padding-left: 16px; color: #666;">region: <span style="color: var(--lime-primary);">"NG-Lagos"</span></div>
+                <div>});</div>
+                <div style="margin-top: 4px;">engine.<span style="color: var(--lime-mid);">deploy</span>();</div>
+              </div>
             </div>
           </div>
         </div>
         
-        <!-- Service 3 -->
+        <!-- Service 3: AI & Automation -->
         <div class="service-row">
           <div class="service-text-side">
             <div class="service-num">03 —</div>
@@ -1651,16 +1695,33 @@
           </div>
           <div class="service-visual-side">
             <div class="service-visual-panel">
-              <div style="font-family: var(--font-mono); font-size: 11px; color: var(--lime-primary); margin-bottom: 12px; position: relative; z-index: 1;">$ robot_agent --deploy</div>
-              <div style="border: 1px solid var(--border-light); border-radius: 6px; padding: 10px; font-size: 12px; position: relative; z-index: 1;">
-                <div style="color: var(--lime-primary);">System active.</div>
-                <div style="margin-top: 4px; color: var(--text-secondary);">Jobs handled: 1,492</div>
+              <!-- Coded multi-stage automation workflow chain -->
+              <div style="font-family: var(--font-mono); font-size: 11px; color: var(--lime-primary); margin-bottom: 16px;">$ pipeline_manager --status</div>
+              
+              <div style="display: flex; flex-direction: column; gap: 12px;">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <span style="font-family: var(--font-mono); font-size: 9px; color: #555; width: 60px;">TRIGGER</span>
+                  <div style="background: #111; border: 1px solid rgba(0, 255, 0, 0.15); border-radius: 4px; padding: 6px 12px; font-size: 12px; color: #FFF; flex-grow: 1;">New Lead Form Submitted</div>
+                </div>
+                
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <span style="font-family: var(--font-mono); font-size: 9px; color: #555; width: 60px;">ACTION</span>
+                  <div style="background: #111; border: 1px solid rgba(0, 255, 0, 0.15); border-radius: 4px; padding: 6px 12px; font-size: 12px; color: var(--lime-primary); flex-grow: 1; display: flex; justify-content: space-between; align-items: center;">
+                    <span>AI Lead Scoring Agent</span>
+                    <span style="font-size: 8px; font-family: var(--font-mono); color: #666;">98% MATCH</span>
+                  </div>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <span style="font-family: var(--font-mono); font-size: 9px; color: #555; width: 60px;">ROUTING</span>
+                  <div style="background: #111; border: 1px solid rgba(0, 255, 0, 0.15); border-radius: 4px; padding: 6px 12px; font-size: 12px; color: #FFF; flex-grow: 1;">Slack Notification Dispatch</div>
+                </div>
               </div>
             </div>
           </div>
         </div>
         
-        <!-- Service 4 -->
+        <!-- Service 4: Data Analytics & BI -->
         <div class="service-row">
           <div class="service-text-side">
             <div class="service-num">04 —</div>
@@ -1670,22 +1731,43 @@
           </div>
           <div class="service-visual-side">
             <div class="service-visual-panel">
-              <div style="font-family: var(--font-mono); font-size: 11px; color: var(--lime-primary); margin-bottom: 12px; position: relative; z-index: 1;">$ bi_reporter --output</div>
-              <div style="display: flex; gap: 10px; margin-top: 10px; position: relative; z-index: 1;">
-                <div style="flex: 1; border: 1px solid var(--border-light); padding: 8px; text-align: center; border-radius: 6px;">
-                  <div style="color: var(--lime-primary); font-weight: 800;">346%</div>
-                  <div style="font-size: 8px; color: var(--text-secondary);">SALES</div>
+              <!-- Coded column bar chart showing data trends -->
+              <div style="font-family: var(--font-mono); font-size: 11px; color: var(--lime-primary); margin-bottom: 14px;">$ analytics_bi --render</div>
+              
+              <div style="display: flex; align-items: flex-end; justify-content: space-between; height: 110px; padding: 0 10px; border-bottom: 1px solid rgba(255,255,255,0.05); position: relative;">
+                <!-- Grid background markers -->
+                <div style="position: absolute; width: 100%; height: 1px; top: 25%; left: 0; background: rgba(255,255,255,0.02);"></div>
+                <div style="position: absolute; width: 100%; height: 1px; top: 50%; left: 0; background: rgba(255,255,255,0.02);"></div>
+                <div style="position: absolute; width: 100%; height: 1px; top: 75%; left: 0; background: rgba(255,255,255,0.02);"></div>
+
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 6px; width: 40px;">
+                  <span style="font-size: 9px; font-family: var(--font-mono); color: #555;">35%</span>
+                  <div style="background: var(--lime-deep); width: 24px; height: 35px; border-radius: 3px 3px 0 0;"></div>
                 </div>
-                <div style="flex: 1; border: 1px solid var(--border-light); padding: 8px; text-align: center; border-radius: 6px;">
-                  <div style="color: var(--lime-mid); font-weight: 800;">43.5%</div>
-                  <div style="font-size: 8px; color: var(--text-secondary);">CPC</div>
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 6px; width: 40px;">
+                  <span style="font-size: 9px; font-family: var(--font-mono); color: #555;">68%</span>
+                  <div style="background: var(--lime-mid); width: 24px; height: 68px; border-radius: 3px 3px 0 0;"></div>
                 </div>
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 6px; width: 40px;">
+                  <span style="font-size: 9px; font-family: var(--font-mono); color: var(--lime-primary); font-weight: 700;">94%</span>
+                  <div style="background: var(--lime-primary); width: 24px; height: 94px; border-radius: 3px 3px 0 0;"></div>
+                </div>
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 6px; width: 40px;">
+                  <span style="font-size: 9px; font-family: var(--font-mono); color: #555;">55%</span>
+                  <div style="background: var(--lime-deep); width: 24px; height: 55px; border-radius: 3px 3px 0 0;"></div>
+                </div>
+              </div>
+              <div style="display: flex; justify-content: space-between; padding: 6px 10px 0; font-family: var(--font-mono); font-size: 9px; color: #555;">
+                <span>Q1</span>
+                <span>Q2</span>
+                <span>Q3</span>
+                <span>Q4</span>
               </div>
             </div>
           </div>
         </div>
         
-        <!-- Service 5 -->
+        <!-- Service 5: Content & SEO -->
         <div class="service-row">
           <div class="service-text-side">
             <div class="service-num">05 —</div>
@@ -1695,22 +1777,26 @@
           </div>
           <div class="service-visual-side">
             <div class="service-visual-panel">
-              <div style="font-family: var(--font-mono); font-size: 11px; color: var(--lime-primary); margin-bottom: 12px; position: relative; z-index: 1;">$ search_indexer --active</div>
-              <div style="font-size: 12px; position: relative; z-index: 1;">
-                <div style="margin-bottom: 6px; display: flex; justify-content: space-between;">
-                  <span>Keyword: Monospace</span>
-                  <span style="color: var(--lime-primary);">Rank #1</span>
+              <!-- Coded SERP (Search Engine Result Page) simulation layout -->
+              <div style="font-family: var(--font-mono); font-size: 9px; color: #555; margin-bottom: 12px;">Google Search: "growth agency lagos"</div>
+              
+              <div style="background: #0E0E0E; border: 1px solid rgba(255,255,255,0.03); border-radius: 8px; padding: 16px;">
+                <div style="font-family: var(--font-mono); font-size: 9px; color: var(--lime-primary); display: flex; align-items: center; gap: 4px;">
+                  <span>https://monospacedigital.com</span>
+                  <span style="color: #444;">▼</span>
                 </div>
-                <div style="display: flex; justify-content: space-between;">
-                  <span>Keyword: Growth agency</span>
-                  <span style="color: var(--lime-primary);">Rank #1</span>
-                </div>
+                <h4 style="font-size: 14px; font-weight: 700; color: #FFF; margin: 4px 0 6px 0; cursor: pointer; text-decoration: underline;">
+                  Monospace Digital — Rebuilding African Business Growth
+                </h4>
+                <p style="font-size: 11px; color: #666; line-height: 1.4;">
+                  We design software solutions, execute conversion rate marketing campaigns, and integrate business data pipelines...
+                </p>
               </div>
             </div>
           </div>
         </div>
         
-        <!-- Service 6 -->
+        <!-- Service 6: Product Strategy -->
         <div class="service-row">
           <div class="service-text-side">
             <div class="service-num">06 —</div>
@@ -1720,9 +1806,39 @@
           </div>
           <div class="service-visual-side">
             <div class="service-visual-panel">
-              <div style="font-family: var(--font-mono); font-size: 11px; color: var(--lime-primary); margin-bottom: 12px; position: relative; z-index: 1;">$ roadmap --matrix</div>
-              <div style="border: 1px solid var(--border-light); height: 100px; border-radius: 6px; display: flex; justify-content: center; align-items: center; color: var(--text-secondary); font-size: 12px; position: relative; z-index: 1;">
-                MVP validation path maps established.
+              <!-- Coded roadmap / Gantt schedule mockup -->
+              <div style="font-family: var(--font-mono); font-size: 11px; color: var(--lime-primary); margin-bottom: 16px;">$ roadmap --timeline</div>
+              
+              <div style="display: flex; flex-direction: column; gap: 14px; font-family: var(--font-mono); font-size: 10px;">
+                <div>
+                  <div style="display: flex; justify-content: space-between; color: #FFF; margin-bottom: 4px;">
+                    <span>PHASE 1: Research & Audit</span>
+                    <span style="color: var(--lime-primary);">100%</span>
+                  </div>
+                  <div style="background: #111; height: 6px; border-radius: 3px; width: 100%;">
+                    <div style="background: var(--lime-primary); height: 100%; border-radius: 3px; width: 100%;"></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div style="display: flex; justify-content: space-between; color: #888; margin-bottom: 4px;">
+                    <span>PHASE 2: MVP Delivery</span>
+                    <span style="color: var(--lime-mid);">80%</span>
+                  </div>
+                  <div style="background: #111; height: 6px; border-radius: 3px; width: 100%;">
+                    <div style="background: var(--lime-mid); height: 100%; border-radius: 3px; width: 80%;"></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div style="display: flex; justify-content: space-between; color: #555; margin-bottom: 4px;">
+                    <span>PHASE 3: Scale Operations</span>
+                    <span style="color: var(--lime-deep);">20%</span>
+                  </div>
+                  <div style="background: #111; height: 6px; border-radius: 3px; width: 100%;">
+                    <div style="background: var(--lime-deep); height: 100%; border-radius: 3px; width: 20%;"></div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -1785,12 +1901,18 @@
                   <svg width="100%" height="100" viewBox="0 0 400 100" preserveAspectRatio="none" style="display: block; background: #090909;">
                     <defs>
                       <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stop-color="rgba(0,255,0,0.15)"></stop>
+                        <stop offset="0%" stop-color="rgba(0,255,0,0.25)"></stop> <!-- Opacity boosted to 0.25 -->
                         <stop offset="100%" stop-color="rgba(0,255,0,0)"></stop>
                       </linearGradient>
                     </defs>
                     <path d="M 0 90 Q 100 80, 200 45 T 400 10 L 400 100 L 0 100 Z" fill="url(#chartGradient)"></path>
-                    <path d="M 0 90 Q 100 80, 200 45 T 400 10" fill="none" stroke="var(--lime-primary)" stroke-width="2"></path>
+                    <!-- Thicker stroke-width="4" and active data dots for visibility -->
+                    <path d="M 0 90 Q 100 80, 200 45 T 400 10" fill="none" stroke="var(--lime-primary)" stroke-width="4"></path>
+                    <circle cx="0" cy="90" r="4.5" fill="var(--lime-primary)"></circle>
+                    <circle cx="100" cy="80" r="4.5" fill="var(--lime-primary)"></circle>
+                    <circle cx="200" cy="45" r="4.5" fill="var(--lime-primary)"></circle>
+                    <circle cx="300" cy="27" r="4.5" fill="var(--lime-primary)"></circle>
+                    <circle cx="400" cy="10" r="4.5" fill="var(--lime-primary)"></circle>
                   </svg>
                 </div>
                 <div class="analytics-footer">Client: Paga · Q4 2023</div>
@@ -1865,8 +1987,8 @@
           </div>
           <div style="position: relative; z-index: 1;">
             <hr class="case-study-divider" />
-            <div class="case-study-metric" style="color: #00FF00;">43%</div>
-            <div class="case-study-metric-label">Lower cost per click</div>
+            <div class="case-study-metric" style="color: #00FF00;">346%</div>
+            <div class="case-study-metric-label">Sales increase achieved</div>
           </div>
         </div>
         
@@ -1880,7 +2002,7 @@
           </div>
           <div style="position: relative; z-index: 1;">
             <hr class="case-study-divider" />
-            <div class="case-study-metric" style="color: #00E600; font-family: var(--font-mono); font-size: 32px; font-weight: 800;">PAN</div>
+            <div class="case-study-metric" style="color: #00E600; font-family: var(--font-mono); font-size: 48px; font-weight: 800;">PAN</div>
             <div class="case-study-metric-label">African reach</div>
           </div>
         </div>
@@ -2120,7 +2242,11 @@
   <script>
     /* Bootstrapping after window load */
     window.addEventListener('DOMContentLoaded', function() {
-      gsap.registerPlugin(ScrollTrigger);
+      const hasGsap = typeof gsap !== 'undefined';
+      
+      if (hasGsap) {
+        gsap.registerPlugin(ScrollTrigger);
+      }
 
       /* Brands list defined with new Array to avoid square brackets */
       const brandsList = new Array(
@@ -2146,21 +2272,23 @@
           return '<span class="logo-item">' + brand + '</span>' + sep;
         }).join('');
 
-        const tickerAnimation = gsap.to('.marquee-track', {
-          xPercent: -50,
-          ease: 'none',
-          duration: 25,
-          repeat: -1
-        });
+        if (hasGsap) {
+          const tickerAnimation = gsap.to('.marquee-track', {
+            xPercent: -50,
+            ease: 'none',
+            duration: 25,
+            repeat: -1
+          });
 
-        const tickerContainer = document.getElementById('marquee-container');
-        if (tickerContainer) {
-          tickerContainer.addEventListener('mouseenter', function() {
-            tickerAnimation.pause();
-          });
-          tickerContainer.addEventListener('mouseleave', function() {
-            tickerAnimation.play();
-          });
+          const tickerContainer = document.getElementById('marquee-container');
+          if (tickerContainer) {
+            tickerContainer.addEventListener('mouseenter', function() {
+              tickerAnimation.pause();
+            });
+            tickerContainer.addEventListener('mouseleave', function() {
+              tickerAnimation.play();
+            });
+          }
         }
       }
 
@@ -2176,78 +2304,96 @@
           return '<span style="display: inline-block; overflow: hidden;"><span' + cssClass + ' style="display: inline-block; opacity: 0; transform: translateY(40px);">' + word + '</span></span>';
         }).join(' ');
 
-        gsap.to('.hero-headline span span', {
-          opacity: 1,
-          y: 0,
-          stagger: 0.08,
-          duration: 0.7,
-          ease: 'power3.out'
-        });
+        if (hasGsap) {
+          gsap.to('.hero-headline span span', {
+            opacity: 1,
+            y: 0,
+            stagger: 0.08,
+            duration: 0.7,
+            ease: 'power3.out'
+          });
+        } else {
+          document.querySelectorAll('.hero-headline span span').forEach(function(el) {
+            el.style.opacity = '1';
+            el.style.transform = 'none';
+          });
+        }
       }
 
-      /* Hero Stats counter animation */
+      /* Hero Stats counter animation with fallback */
       document.querySelectorAll('.stat-number').forEach(function(stat) {
         const targetVal = parseFloat(stat.getAttribute('data-target'));
         const suffix = stat.getAttribute('data-suffix') || '';
-        const obj = { val: 0 };
 
-        gsap.to(obj, {
-          val: targetVal,
-          duration: 2,
-          ease: 'power2.out',
-          onUpdate: function() {
-            const isFloat = targetVal % 1 !== 0;
-            if (isFloat) {
-              stat.textContent = obj.val.toFixed(2) + suffix;
-            } else {
-              stat.textContent = Math.floor(obj.val) + suffix;
+        if (hasGsap) {
+          const obj = { val: 0 };
+          gsap.to(obj, {
+            val: targetVal,
+            duration: 2,
+            ease: 'power2.out',
+            onUpdate: function() {
+              const isFloat = targetVal % 1 !== 0;
+              if (isFloat) {
+                stat.textContent = obj.val.toFixed(2) + suffix;
+              } else {
+                stat.textContent = Math.floor(obj.val) + suffix;
+              }
             }
-          }
-        });
+          });
+        } else {
+          /* Fallback value when offline or CDN is blocked */
+          stat.textContent = targetVal + suffix;
+        }
       });
 
       /* Services visuals: alternating entrance animation */
-      gsap.utils.toArray('.service-row').forEach(function(row) {
-        gsap.from(row, {
+      if (hasGsap) {
+        gsap.utils.toArray('.service-row').forEach(function(row) {
+          gsap.from(row, {
+            scrollTrigger: {
+              trigger: row,
+              start: 'top 80%',
+              toggleActions: 'play none none none'
+            },
+            opacity: 0,
+            y: 30,
+            duration: 0.7,
+            ease: 'power2.out'
+          });
+        });
+      }
+
+      /* Staggered Case Studies entrance */
+      if (hasGsap) {
+        gsap.from('.case-study-card', {
           scrollTrigger: {
-            trigger: row,
+            trigger: '.case-grid',
             start: 'top 80%',
             toggleActions: 'play none none none'
           },
           opacity: 0,
           y: 30,
+          stagger: 0.1,
           duration: 0.7,
           ease: 'power2.out'
         });
-      });
-
-      /* Staggered Case Studies entrance */
-      gsap.from('.case-study-card', {
-        scrollTrigger: {
-          trigger: '.case-grid',
-          start: 'top 80%',
-          toggleActions: 'play none none none'
-        },
-        opacity: 0,
-        y: 30,
-        stagger: 0.1,
-        duration: 0.7,
-        ease: 'power2.out'
-      });
+      }
 
       /* Staggered Process steps entrance */
-      gsap.from('.process-step', {
-        scrollTrigger: {
-          trigger: '.process-grid',
-          start: 'top 80%',
-          toggleActions: 'play none none none'
-        },
-        opacity: 0,
-        y: 30,
-        stagger: 0.1,
-        duration: 0.7,
-        ease: 'power2.out'
-      });
+      if (hasGsap) {
+        gsap.from('.process-step', {
+          scrollTrigger: {
+            trigger: '.process-grid',
+            start: 'top 80%',
+            toggleActions: 'play none none none'
+          },
+          opacity: 0,
+          y: 30,
+          stagger: 0.1,
+          duration: 0.7,
+          ease: 'power2.out'
+        });
+      }
 
       /* Interactive Demo Screen Switching */
       let currentScreen = 0;
@@ -2305,36 +2451,52 @@
         }).join('');
 
         /* Setup active highlight animations on timeline milestones */
-        gsap.utils.toArray('.timeline-item').forEach(function(item, idx) {
-          const isEven = idx % 2 === 0;
-          const xOffset = isEven ? -30 : 30;
+        if (hasGsap) {
+          gsap.utils.toArray('.timeline-item').forEach(function(item, idx) {
+            const isEven = idx % 2 === 0;
+            const xOffset = isEven ? -30 : 30;
 
-          gsap.from(item, {
-            scrollTrigger: {
-              trigger: item,
-              start: 'top 85%',
-              toggleActions: 'play none none none'
-            },
-            opacity: 0,
-            x: xOffset,
-            duration: 0.6
+            gsap.from(item, {
+              scrollTrigger: {
+                trigger: item,
+                start: 'top 85%',
+                toggleActions: 'play none none none'
+              },
+              opacity: 0,
+              x: xOffset,
+              duration: 0.6
+            });
           });
-        });
+        } else {
+          /* Fallback for timeline visibility */
+          document.querySelectorAll('.timeline-item').forEach(function(item) {
+            item.style.opacity = '1';
+            item.style.transform = 'none';
+          });
+        }
       }
 
       /* Grow timeline vertical line on scroll */
-      gsap.fromTo('.timeline-line', 
-        { scaleY: 0 },
-        {
-          scaleY: 1,
-          scrollTrigger: {
-            trigger: '.timeline-container',
-            start: 'top 30%',
-            end: 'bottom 80%',
-            scrub: true
+      if (hasGsap) {
+        gsap.fromTo('.timeline-line', 
+          { scaleY: 0 },
+          {
+            scaleY: 1,
+            scrollTrigger: {
+              trigger: '.timeline-container',
+              start: 'top 30%',
+              end: 'bottom 80%',
+              scrub: true
+            }
           }
+        );
+      } else {
+        /* Fallback for line if GSAP is offline */
+        const timelineLine = document.querySelector('.timeline-line');
+        if (timelineLine) {
+          timelineLine.style.transform = 'translateX(-50%) scaleY(1)';
         }
-      );
+      }
 
       /* Hover Effects: 3D Tilts and Magnetic Glow */
       if (window.matchMedia('(hover: hover)').matches) {
@@ -2393,7 +2555,11 @@
       const sheet = document.getElementById(sheetId);
       if (sheet) {
         sheet.classList.add('active');
-        gsap.to(window, { scrollTo: sheet, duration: 0.5 });
+        if (typeof gsap !== 'undefined') {
+          gsap.to(window, { scrollTo: sheet, duration: 0.5 });
+        } else {
+          sheet.scrollIntoView({ behavior: 'smooth' });
+        }
       }
     }
 
