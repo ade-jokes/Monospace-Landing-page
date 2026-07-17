@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+  <script type="module" src="https://unpkg.com/@splinetool/viewer/build/spline-viewer.js"></script>
   <style>
     :root {
       --bg: #07080b;
@@ -188,10 +189,42 @@
     }
 
     .hero {
+      position: relative;
+      min-height: calc(100vh - 68px);
       padding: 94px 0 62px;
+      overflow: hidden;
+      isolation: isolate;
+      background: #050609;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background:
+        linear-gradient(90deg, rgba(5, 6, 9, 0.94) 0%, rgba(5, 6, 9, 0.76) 42%, rgba(5, 6, 9, 0.42) 100%),
+        linear-gradient(180deg, rgba(5, 6, 9, 0.32) 0%, rgba(5, 6, 9, 0.92) 100%);
+    }
+
+    .spline-hero-bg {
+      position: absolute;
+      inset: -8% -8% -8% 26%;
+      z-index: -2;
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .spline-hero-bg spline-viewer {
+      width: 100%;
+      height: 100%;
+      display: block;
     }
 
     .hero-grid {
+      position: relative;
+      z-index: 1;
       display: grid;
       grid-template-columns: 1fr 0.86fr;
       gap: 70px;
@@ -932,6 +965,11 @@
         padding-top: 58px;
       }
 
+      .spline-hero-bg {
+        inset: 4% -70% 8% 4%;
+        opacity: 0.48;
+      }
+
       .hero-stats {
         grid-template-columns: 1fr;
       }
@@ -972,6 +1010,9 @@
 
   <main id="top">
     <section class="hero">
+      <div class="spline-hero-bg" aria-hidden="true">
+        <spline-viewer url="https://prod.spline.design/rHa0NnpUjATWGpL2/scene.splinecode"></spline-viewer>
+      </div>
       <div class="container hero-grid">
         <div>
           <h1>Unlock your <span>digital potential.</span></h1>
