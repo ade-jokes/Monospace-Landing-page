@@ -1186,9 +1186,38 @@
     }
 
     .process-step {
-      border-top: 1px solid var(--border-deep);
-      padding-top: 28px;
+      background: linear-gradient(135deg, #0D0D0D 0%, #0A0A0A 100%);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 32px;
+      position: relative;
+      overflow: hidden;
       opacity: 0; /* Animated via GSAP scroll trigger */
+      transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1), border-color 200ms ease;
+      cursor: pointer;
+    }
+
+    .process-step:hover {
+      transform: translateY(-6px);
+      border-color: var(--border-subtle-hover);
+    }
+
+    .process-step::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--lime-primary);
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 250ms ease;
+      z-index: 2;
+    }
+
+    .process-step:hover::after {
+      transform: scaleX(1);
     }
 
     .process-step-num {
@@ -1198,6 +1227,8 @@
       color: rgba(0, 255, 0, 0.40);
       line-height: 1;
       margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
     }
 
     .process-step-title {
@@ -1205,12 +1236,16 @@
       font-weight: 700;
       margin-bottom: 10px;
       color: var(--text-primary);
+      position: relative;
+      z-index: 1;
     }
 
     .process-step-desc {
       font-size: 14px;
       color: var(--text-muted);
       line-height: 1.7;
+      position: relative;
+      z-index: 1;
     }
 
     /* Testimonial Section */
@@ -1915,25 +1950,29 @@
       <h2 class="section-headline">Simple process. Measurable results.</h2>
       
       <div class="process-grid">
-        <div class="process-step">
+        <div class="process-step card-interactive">
+          <div class="card-glow-overlay"></div>
           <div class="process-step-num">01</div>
           <h3 class="process-step-title">Discovery</h3>
           <p class="process-step-desc">We learn your business, market, and goals before writing a single line of code or spending a single naira.</p>
         </div>
         
-        <div class="process-step">
+        <div class="process-step card-interactive">
+          <div class="card-glow-overlay"></div>
           <div class="process-step-num">02</div>
           <h3 class="process-step-title">Strategy</h3>
           <p class="process-step-desc">We map the solution — technology, channels, timeline, and the exact metrics we will measure.</p>
         </div>
         
-        <div class="process-step">
+        <div class="process-step card-interactive">
+          <div class="card-glow-overlay"></div>
           <div class="process-step-num">03</div>
           <h3 class="process-step-title">Execute</h3>
           <p class="process-step-desc">We build and launch fast. You see real progress every week.</p>
         </div>
         
-        <div class="process-step">
+        <div class="process-step card-interactive">
+          <div class="card-glow-overlay"></div>
           <div class="process-step-num">04</div>
           <h3 class="process-step-title">Optimise</h3>
           <p class="process-step-desc">We measure everything after launch and keep improving indefinitely.</p>
@@ -2249,7 +2288,7 @@
           });
         });
 
-        document.querySelectorAll('.case-study-card, .service-visual-panel, .visual-dashboard-card').forEach(function(card) {
+        document.querySelectorAll('.case-study-card, .service-visual-panel, .visual-dashboard-card, .process-step').forEach(function(card) {
           card.addEventListener('mousemove', function(e) {
             const rect = card.getBoundingClientRect();
             const x = e.clientX - rect.left;
