@@ -278,7 +278,7 @@
       background-color: rgba(0, 255, 0, 0.08);
     }
 
-    /* Hero Section with Charcoal Gradient overlay */
+    /* Hero Section with Reduced Top Spacing */
     .hero-section {
       background: radial-gradient(circle at 80% 20%, #161616 0%, #0D0D0D 40%, var(--bg-dark-1) 100%);
       min-height: 100vh;
@@ -310,7 +310,7 @@
       grid-template-columns: 1fr;
       gap: 80px;
       align-items: center;
-      padding-top: 140px;
+      padding-top: 100px; /* Reduced from 140px to sit higher */
       padding-bottom: 100px;
       position: relative;
       z-index: 2;
@@ -544,7 +544,7 @@
       flex-direction: column;
       gap: 60px;
       padding: 60px 0;
-      border-bottom: 1px solid var(--border-subtle);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
     }
 
     @media (min-width: 768px) {
@@ -606,12 +606,12 @@
       align-items: center;
     }
 
+    /* Open Visual panels with NO border cards */
     .service-visual-panel {
       width: 100%;
       max-width: 420px;
       height: 240px;
-      background-color: #121212;
-      border: 1px solid var(--border-light);
+      background-color: #0F0F0F;
       border-radius: 12px;
       padding: 24px;
       position: relative;
@@ -1046,9 +1046,10 @@
       margin-top: 4px;
     }
 
-    /* Timeline Section */
+    /* Timeline Section (WHITE Background & DARK text styling) */
     .timeline-section {
-      background: linear-gradient(180deg, var(--bg-dark-2) 0%, var(--bg-dark-1) 100%);
+      background-color: #FFFFFF;
+      color: #080808;
       padding: 140px 2rem;
     }
 
@@ -1065,7 +1066,7 @@
       top: 0;
       bottom: 0;
       width: 1px;
-      background-color: rgba(0, 255, 0, 0.10);
+      background-color: rgba(0, 180, 0, 0.20); /* Light green 20% opacity */
       transform: translateX(-50%);
       transform-origin: top center;
     }
@@ -1093,7 +1094,7 @@
     .timeline-connector {
       width: 20px;
       height: 1px;
-      background-color: rgba(0, 255, 0, 0.20);
+      background-color: rgba(0, 180, 0, 0.20);
       position: absolute;
       right: 0;
       top: 12px;
@@ -1108,7 +1109,7 @@
       font-family: var(--font-mono);
       font-weight: 700;
       font-size: 13px;
-      color: var(--lime-primary);
+      color: #00AA00; /* Darker green for white background readability */
       margin-bottom: 8px;
     }
 
@@ -1116,12 +1117,12 @@
       font-size: 17px;
       font-weight: 700;
       margin-bottom: 6px;
-      color: var(--text-primary);
+      color: #080808;
     }
 
     .timeline-desc {
       font-size: 14px;
-      color: var(--text-muted);
+      color: #666666;
       line-height: 1.6;
       max-width: 280px;
       display: inline-block;
@@ -1230,9 +1231,9 @@
       margin-top: 28px;
     }
 
-    /* Closing CTA Section */
+    /* Closing CTA Section (Dark background, no video player) */
     .closing-cta-section {
-      background: radial-gradient(circle at center, #181818 0%, #0D0D0D 60%, var(--bg-dark-1) 100%);
+      background-color: #080808;
       padding: 160px 2rem;
       text-align: center;
       position: relative;
@@ -1240,13 +1241,13 @@
 
     .cta-radial-glow {
       position: absolute;
-      width: 600px;
-      height: 600px;
+      width: 500px;
+      height: 500px;
       background: radial-gradient(circle, rgba(0, 255, 0, 0.04), transparent);
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      filter: blur(120px);
+      filter: blur(100px);
       pointer-events: none;
       z-index: 0;
     }
@@ -1270,25 +1271,6 @@
       font-size: 17px;
       color: #999999;
       margin-top: 16px;
-    }
-
-    /* Document Video Showcase container */
-    .cta-video-wrapper {
-      margin-top: 48px;
-      border-radius: 8px;
-      border: 1px solid var(--border-mid);
-      overflow: hidden;
-      width: 100%;
-      max-width: 480px;
-      display: inline-block;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
-      background-color: var(--bg-dark-3);
-    }
-
-    .cta-showcase-video {
-      width: 100%;
-      height: auto;
-      display: block;
     }
 
     /* Footer */
@@ -1488,6 +1470,7 @@
 
   <!-- Hero Section -->
   <section class="hero-section">
+    <!-- Background video has NO controls, autoplay muted loop playsinline only -->
     <video class="hero-video-bg" autoplay muted loop playsinline src="https://monospacedigital.com/videos/background3.mp4"></video>
     <div class="hero-video-overlay"></div>
     
@@ -1526,7 +1509,66 @@
       
       <div class="hero-right-col">
         <div class="visual-wrapper-3d">
-          <img class="card-tilted-main" src="https://monospacedigital.com/images/conversion_rates@2x.png" alt="Conversion Rates" />
+          
+          <!-- Conversion Rates Visual coded with clean HTML/CSS elements -->
+          <div class="card-tilted-main visual-dashboard-card" style="background-color: #0F0F0F; border: 1px solid var(--border-mid); border-radius: 14px; padding: 20px; box-shadow: 0 40px 80px rgba(0, 0, 0, 0.7); position: relative; font-family: var(--font-sans); text-align: left; height: 260px; display: flex; flex-direction: column; justify-content: space-between;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+              <div style="background: #141414; border-radius: 6px; padding: 6px 8px; border: 1px solid rgba(0, 255, 0, 0.05);">
+                <div style="color: var(--lime-primary); font-size: 14px; font-weight: 800; font-family: var(--font-sans);">38.94%</div>
+                <div style="color: #666; font-size: 8px; font-family: var(--font-mono); text-transform: uppercase;">User Growth</div>
+              </div>
+              <div style="background: #141414; border-radius: 6px; padding: 6px 8px; border: 1px solid rgba(0, 255, 0, 0.05);">
+                <div style="color: var(--lime-mid); font-size: 14px; font-weight: 800; font-family: var(--font-sans);">43.59%</div>
+                <div style="color: #666; font-size: 8px; font-family: var(--font-mono); text-transform: uppercase;">CPC Reduction</div>
+              </div>
+              <div style="background: #141414; border-radius: 6px; padding: 6px 8px; border: 1px solid rgba(0, 255, 0, 0.05);">
+                <div style="color: var(--lime-deep); font-size: 14px; font-weight: 800; font-family: var(--font-sans);">346%</div>
+                <div style="color: #666; font-size: 8px; font-family: var(--font-mono); text-transform: uppercase;">Sales Increase</div>
+              </div>
+              <div style="background: #141414; border-radius: 6px; padding: 6px 8px; border: 1px solid rgba(0, 255, 0, 0.05);">
+                <div style="color: #F0F0F0; font-size: 14px; font-weight: 800; font-family: var(--font-sans);">2.4M</div>
+                <div style="color: #666; font-size: 8px; font-family: var(--font-mono); text-transform: uppercase;">Impressions</div>
+              </div>
+            </div>
+            
+            <div style="position: relative; margin-top: 10px; height: 80px;">
+              <svg width="100%" height="60" viewBox="0 0 300 60" preserveAspectRatio="none">
+                <!-- Second chart line in rgba(0,255,0,0.20) as a comparison line -->
+                <path d="M 0 45 Q 60 50, 120 40 T 240 30 T 300 20" fill="none" stroke="rgba(0, 255, 0, 0.20)" stroke-width="1.5"></path>
+                <!-- Main green line with dots at data points -->
+                <path d="M 0 55 L 60 50 L 120 35 L 180 25 L 240 12 L 300 5" fill="none" stroke="var(--lime-primary)" stroke-width="2"></path>
+                <circle cx="0" cy="55" r="3.5" fill="var(--lime-primary)"></circle>
+                <circle cx="60" cy="50" r="3.5" fill="var(--lime-primary)"></circle>
+                <circle cx="120" cy="35" r="3.5" fill="var(--lime-primary)"></circle>
+                <circle cx="180" cy="25" r="3.5" fill="var(--lime-primary)"></circle>
+                <circle cx="240" cy="12" r="3.5" fill="var(--lime-primary)"></circle>
+                <circle cx="300" cy="5" r="3.5" fill="var(--lime-primary)"></circle>
+              </svg>
+              <!-- X-axis labels in Space Mono 9px #333 -->
+              <div style="display: flex; justify-content: space-between; margin-top: 4px; font-family: var(--font-mono); font-size: 9px; color: #333;">
+                <span>Jan</span>
+                <span>Feb</span>
+                <span>Mar</span>
+                <span>Apr</span>
+                <span>May</span>
+                <span>Jun</span>
+              </div>
+            </div>
+
+            <!-- Small floating card bottom-right showing progress and tiny sparkline -->
+            <div style="position: absolute; bottom: 8px; right: 8px; background: #141414; border: 1px solid rgba(0, 255, 0, 0.15); border-radius: 6px; padding: 6px 8px; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); display: flex; align-items: center; gap: 8px; z-index: 12;">
+              <div>
+                <div style="color: var(--lime-primary); font-size: 11px; font-weight: 800; font-family: var(--font-sans); line-height: 1;">+18%</div>
+                <div style="color: #666; font-size: 7px; font-family: var(--font-mono); text-transform: uppercase; margin-top: 2px;">vs last quarter</div>
+              </div>
+              <div style="display: flex; align-items: flex-end; gap: 2px; height: 16px;">
+                <div style="background: rgba(0, 255, 0, 0.15); width: 3px; height: 6px; border-radius: 1px;"></div>
+                <div style="background: rgba(0, 255, 0, 0.15); width: 3px; height: 10px; border-radius: 1px;"></div>
+                <div style="background: var(--lime-primary); width: 3px; height: 14px; border-radius: 1px;"></div>
+              </div>
+            </div>
+          </div>
+
           <img class="card-tilted-floating" src="https://monospacedigital.com/images/market_share@2x.png" alt="Market Share" />
         </div>
       </div>
@@ -1571,8 +1613,7 @@
             <span class="service-tag">GROWTH</span>
           </div>
           <div class="service-visual-side">
-            <div class="service-visual-panel card-interactive">
-              <div class="card-glow-overlay"></div>
+            <div class="service-visual-panel">
               <div style="font-family: var(--font-mono); font-size: 11px; color: var(--lime-primary); margin-bottom: 12px; position: relative; z-index: 1;">$ analytics_daemon --feed</div>
               <div class="cpc-mockup-bar" style="width: 85%; position: relative; z-index: 1;"></div>
               <div class="cpc-mockup-bar" style="width: 45%; background-color: var(--lime-mid); position: relative; z-index: 1;"></div>
@@ -1591,8 +1632,7 @@
             <span class="service-tag">BUILD</span>
           </div>
           <div class="service-visual-side">
-            <div class="service-visual-panel card-interactive">
-              <div class="card-glow-overlay"></div>
+            <div class="service-visual-panel">
               <div class="code-mockup-line" style="color: var(--lime-primary); position: relative; z-index: 1;">const monospace = new Agency();</div>
               <div class="code-mockup-line" style="position: relative; z-index: 1;">monospace.locate("Lekki, Lagos");</div>
               <div class="code-mockup-line" style="position: relative; z-index: 1;">monospace.optimize("pipeline");</div>
@@ -1610,8 +1650,7 @@
             <span class="service-tag">AUTOMATE</span>
           </div>
           <div class="service-visual-side">
-            <div class="service-visual-panel card-interactive">
-              <div class="card-glow-overlay"></div>
+            <div class="service-visual-panel">
               <div style="font-family: var(--font-mono); font-size: 11px; color: var(--lime-primary); margin-bottom: 12px; position: relative; z-index: 1;">$ robot_agent --deploy</div>
               <div style="border: 1px solid var(--border-light); border-radius: 6px; padding: 10px; font-size: 12px; position: relative; z-index: 1;">
                 <div style="color: var(--lime-primary);">System active.</div>
@@ -1630,8 +1669,7 @@
             <span class="service-tag">INSIGHT</span>
           </div>
           <div class="service-visual-side">
-            <div class="service-visual-panel card-interactive">
-              <div class="card-glow-overlay"></div>
+            <div class="service-visual-panel">
               <div style="font-family: var(--font-mono); font-size: 11px; color: var(--lime-primary); margin-bottom: 12px; position: relative; z-index: 1;">$ bi_reporter --output</div>
               <div style="display: flex; gap: 10px; margin-top: 10px; position: relative; z-index: 1;">
                 <div style="flex: 1; border: 1px solid var(--border-light); padding: 8px; text-align: center; border-radius: 6px;">
@@ -1656,8 +1694,7 @@
             <span class="service-tag">REACH</span>
           </div>
           <div class="service-visual-side">
-            <div class="service-visual-panel card-interactive">
-              <div class="card-glow-overlay"></div>
+            <div class="service-visual-panel">
               <div style="font-family: var(--font-mono); font-size: 11px; color: var(--lime-primary); margin-bottom: 12px; position: relative; z-index: 1;">$ search_indexer --active</div>
               <div style="font-size: 12px; position: relative; z-index: 1;">
                 <div style="margin-bottom: 6px; display: flex; justify-content: space-between;">
@@ -1682,8 +1719,7 @@
             <span class="service-tag">STRATEGY</span>
           </div>
           <div class="service-visual-side">
-            <div class="service-visual-panel card-interactive">
-              <div class="card-glow-overlay"></div>
+            <div class="service-visual-panel">
               <div style="font-family: var(--font-mono); font-size: 11px; color: var(--lime-primary); margin-bottom: 12px; position: relative; z-index: 1;">$ roadmap --matrix</div>
               <div style="border: 1px solid var(--border-light); height: 100px; border-radius: 6px; display: flex; justify-content: center; align-items: center; color: var(--text-secondary); font-size: 12px; position: relative; z-index: 1;">
                 MVP validation path maps established.
@@ -1815,7 +1851,7 @@
   <section class="case-studies">
     <div class="container">
       <span class="section-label-lime">PROVEN RESULTS</span>
-      <h2 class="section-headline">Clients we have grown.</h2>
+      <h2 class="section-headline">Case Studies.</h2>
       <p class="section-subtext">Real campaigns. Real numbers. Real African businesses.</p>
       
       <div class="case-grid">
@@ -1839,13 +1875,13 @@
           <div class="card-glow-overlay"></div>
           <div style="position: relative; z-index: 1;">
             <span class="case-study-client" style="color: #00E600;">Amazon Prime Video</span>
-            <h3 class="case-study-headline">Gangs of Lagos — Pan-African launch.</h3>
+            <h3 class="case-study-headline">Gangs of Lagos — African launch.</h3>
             <p class="case-study-desc">Interactive web experience with personalised social sharing for the movie launch across Africa.</p>
           </div>
           <div style="position: relative; z-index: 1;">
             <hr class="case-study-divider" />
             <div class="case-study-metric" style="color: #00E600; font-family: var(--font-mono); font-size: 32px; font-weight: 800;">PAN</div>
-            <div class="case-study-metric-label">Pan-African reach</div>
+            <div class="case-study-metric-label">African reach</div>
           </div>
         </div>
         
@@ -1867,12 +1903,12 @@
     </div>
   </section>
 
-  <!-- Timeline Section -->
+  <!-- Timeline Section (White background & Dark text) -->
   <section class="timeline-section" id="timeline">
     <div class="container">
       <div style="text-align: center; margin-bottom: 80px;">
-        <span class="section-label-lime" style="color: var(--lime-mid);">OUR JOURNEY</span>
-        <h2 class="section-headline">A factual history.</h2>
+        <span class="section-label-lime" style="color: #00AA00;">OUR JOURNEY</span>
+        <h2 class="section-headline" style="color: #080808;">A factual history.</h2>
       </div>
       
       <div class="timeline-container">
@@ -1927,18 +1963,13 @@
     </div>
   </section>
 
-  <!-- Closing CTA Section -->
+  <!-- Closing CTA Section (Clean Dark BG with Spotlight Radial Glow) -->
   <section id="contact" class="closing-cta-section">
     <div class="cta-radial-glow"></div>
     <div class="cta-inner">
       <h2 class="cta-headline">Ready to grow your business through technology?</h2>
       <p class="cta-subheadline">Tell us what you are building. We will tell you how to make it grow.</p>
       <a href="mailto:hello@monospacedigital.com" class="btn btn-primary btn-pulse" style="margin-top: 40px;">Start the conversation &rarr;</a>
-      
-      <!-- Visible Showcase Video player in the Register Section -->
-      <div class="cta-video-wrapper">
-        <video class="cta-showcase-video" autoplay muted loop playsinline controls src="https://monospacedigital.com/videos/background3.mp4"></video>
-      </div>
     </div>
   </section>
 
@@ -2344,7 +2375,7 @@
         });
 
         /* Magnetic Mouse Follower Glow */
-        document.querySelectorAll('.case-study-card, .service-visual-panel').forEach(function(card) {
+        document.querySelectorAll('.case-study-card, .service-visual-panel, .visual-dashboard-card').forEach(function(card) {
           card.addEventListener('mousemove', function(e) {
             const rect = card.getBoundingClientRect();
             const x = e.clientX - rect.left;
