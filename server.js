@@ -8,25 +8,25 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Middleware
+/* Middleware */
 app.use(cors());
 app.use(express.json());
 
-// Initialize Gemini AI
+/* Initialize Gemini AI */
 const genai = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
-// In-memory storage (replace with database in production)
+/* In-memory storage (replace with database in production) */
 const submissions = [];
 const analytics = [];
 
-// Routes
+/* Routes */
 
-// 1. Health check
+/* 1. Health check */
 app.get('/api/health', (req, res) => {
   res.json({ status: 'OK', timestamp: new Date().toISOString() });
 });
 
-// 2. Form submission endpoint
+/* 2. Form submission endpoint */
 app.post('/api/contact', (req, res) => {
   try {
     const { name, email, msg } = req.body;
@@ -45,7 +45,7 @@ app.post('/api/contact', (req, res) => {
 
     submissions.push(submission);
 
-    // Log analytics event
+    /* Log analytics event */
     analytics.push({
       event: 'form_submitted',
       timestamp: new Date().toISOString(),
@@ -62,7 +62,7 @@ app.post('/api/contact', (req, res) => {
   }
 });
 
-// 3. Services data endpoint
+/* 3. Services data endpoint */
 app.get('/api/services', (req, res) => {
   const services = [
     {
@@ -133,7 +133,7 @@ app.get('/api/services', (req, res) => {
     },
   ];
 
-  // Log analytics
+  /* Log analytics */
   analytics.push({
     event: 'services_viewed',
     timestamp: new Date().toISOString(),
@@ -142,7 +142,7 @@ app.get('/api/services', (req, res) => {
   res.json(services);
 });
 
-// 4. Case studies endpoint
+/* 4. Case studies endpoint */
 app.get('/api/case-studies', (req, res) => {
   const caseStudies = [
     {
@@ -185,7 +185,7 @@ app.get('/api/case-studies', (req, res) => {
   res.json(caseStudies);
 });
 
-// 5. Testimonials endpoint
+/* 5. Testimonials endpoint */
 app.get('/api/testimonials', (req, res) => {
   const testimonials = [
     {
@@ -206,7 +206,7 @@ app.get('/api/testimonials', (req, res) => {
   res.json(testimonials);
 });
 
-// 6. Gemini AI chat endpoint
+/* 6. Gemini AI chat endpoint */
 app.post('/api/ai/chat', async (req, res) => {
   try {
     const { prompt } = req.body;
@@ -234,7 +234,7 @@ app.post('/api/ai/chat', async (req, res) => {
   }
 });
 
-// 7. Analytics endpoint
+/* 7. Analytics endpoint */
 app.post('/api/analytics', (req, res) => {
   try {
     const { event, data } = req.body;
@@ -253,12 +253,12 @@ app.post('/api/analytics', (req, res) => {
   }
 });
 
-// 8. Get all submissions (admin endpoint - should be protected)
+/* 8. Get all submissions (admin endpoint - should be protected) */
 app.get('/api/admin/submissions', (req, res) => {
   res.json({ submissions, count: submissions.length });
 });
 
-// 9. Get analytics summary
+/* 9. Get analytics summary */
 app.get('/api/admin/analytics', (req, res) => {
   const summary = {
     totalEvents: analytics.length,
@@ -276,15 +276,15 @@ app.get('/api/admin/analytics', (req, res) => {
   res.json(summary);
 });
 
-// Error handling middleware
+/* Error handling middleware */
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).json({ error: 'Internal server error' });
 });
 
-// Start server
+/* Start server */
 app.listen(PORT, () => {
-  console.log(`🚀 Monospace Server running on http://localhost:${PORT}`);
-  console.log(`📊 Analytics endpoint: http://localhost:${PORT}/api/admin/analytics`);
-  console.log(`📨 Submissions endpoint: http://localhost:${PORT}/api/admin/submissions`);
+  console.log(`🚀 Monospace Server running on `http:' + '/' + '/localhost:' + PORT` `);
+  console.log(`📊 Analytics endpoint: `http:' + '/' + '/localhost:' + PORT` /api/admin/analytics`);
+  console.log(`📨 Submissions endpoint: `http:' + '/' + '/localhost:' + PORT` /api/admin/submissions`);
 });
