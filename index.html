@@ -6,8 +6,7 @@
   <title>Monospace Digital — The growth engine for African businesses</title>
   
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Space+Mono:wght@400;700&display=swap');
-
+    /* Base configuration CSS variables */
     :root {
       --bg-dark-1: #080808;
       --bg-dark-2: #0D0D0D;
@@ -1043,15 +1042,15 @@
     }
 
     .case-study-metric {
-      font-size: 56px; /* Magnified from 40px to stand out clearly */
+      font-size: 56px;
       font-weight: 800;
       line-height: 1;
     }
 
     .case-study-metric-label {
       font-family: var(--font-mono);
-      font-size: 13px; /* Slightly scaled up for legibility */
-      color: #888888; /* Lighter shade for high visibility */
+      font-size: 13px;
+      color: #888888;
       margin-top: 4px;
     }
 
@@ -1092,6 +1091,7 @@
       width: 50%;
       padding-right: 40px;
       text-align: right;
+      opacity: 0; /* Animated via GSAP scroll trigger */
     }
 
     #timeline .timeline-item:nth-child(even) {
@@ -1165,7 +1165,7 @@
       }
     }
 
-    /* Process Section with High-Contrast Step Numbers */
+    /* Process Section */
     .process-section {
       background: radial-gradient(circle at top left, #141414 0%, #0D0D0D 60%, var(--bg-dark-1) 100%);
       padding: 140px 2rem;
@@ -1187,13 +1187,14 @@
     .process-step {
       border-top: 1px solid var(--border-deep);
       padding-top: 28px;
+      opacity: 0; /* Animated via GSAP scroll trigger */
     }
 
     .process-step-num {
       font-family: var(--font-mono);
       font-weight: 700;
       font-size: 48px;
-      color: rgba(0, 255, 0, 0.40); /* Boosted opacity for readability */
+      color: rgba(0, 255, 0, 0.40);
       line-height: 1;
       margin-bottom: 16px;
     }
@@ -1630,29 +1631,8 @@
             <span class="service-tag">GROWTH</span>
           </div>
           <div class="service-visual-side">
-            <div class="service-visual-panel">
-              <!-- Coded trendline and ROAS metrics -->
-              <div style="font-family: var(--font-mono); font-size: 11px; color: var(--lime-primary); margin-bottom: 14px;">$ ads_engine --live_stats</div>
-              
-              <div style="display: flex; gap: 14px; margin-bottom: 16px;">
-                <div>
-                  <div style="color: #FFF; font-size: 18px; font-weight: 800;">4.8x</div>
-                  <div style="color: #666; font-size: 8px; font-family: var(--font-mono);">AVG ROAS</div>
-                </div>
-                <div>
-                  <div style="color: var(--lime-primary); font-size: 18px; font-weight: 800;">-43.59%</div>
-                  <div style="color: #666; font-size: 8px; font-family: var(--font-mono);">CPA REDUCTION</div>
-                </div>
-              </div>
-
-              <div style="height: 60px; width: 100%;">
-                <svg width="100%" height="100%" viewBox="0 0 300 60" preserveAspectRatio="none">
-                  <path d="M 0 50 Q 75 40, 150 25 T 300 5" fill="none" stroke="var(--lime-primary)" stroke-width="2"></path>
-                  <path d="M 0 50 Q 75 40, 150 25 T 300 5 L 300 60 L 0 60 Z" fill="rgba(0, 255, 0, 0.04)"></path>
-                  <circle cx="150" cy="25" r="3" fill="var(--lime-primary)"></circle>
-                  <circle cx="300" cy="5" r="3" fill="var(--lime-primary)"></circle>
-                </svg>
-              </div>
+            <div class="service-visual-panel" style="background-color: transparent; border: none; border-radius: 12px; max-width: 460px; height: auto;">
+              <img src="images/Perfomance_marketing_section.svg" alt="Performance Marketing" style="width:100%;height:100%;object-fit:contain;display:block;">
             </div>
           </div>
         </div>
@@ -1666,21 +1646,8 @@
             <span class="service-tag">BUILD</span>
           </div>
           <div class="service-visual-side">
-            <div class="service-visual-panel">
-              <!-- Coded IDE simulation layout -->
-              <div style="display: flex; gap: 8px; margin-bottom: 12px; font-family: var(--font-mono); font-size: 10px; color: #555;">
-                <span style="color: var(--lime-primary); border-bottom: 1px solid var(--lime-primary); padding-bottom: 2px;">app.js</span>
-                <span>index.html</span>
-                <span>styles.css</span>
-              </div>
-              <div style="font-family: var(--font-mono); font-size: 11px; line-height: 1.6; color: #888; background: #0E0E0E; padding: 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.03);">
-                <div><span style="color: var(--lime-primary);">import</span> { <span style="color: #FFF;">createEngine</span> } <span style="color: var(--lime-primary);">from</span> <span style="color: var(--lime-deep);">"monospace"</span>;</div>
-                <div style="margin-top: 4px;"><span style="color: var(--lime-primary);">const</span> engine = <span style="color: var(--lime-mid);">createEngine</span>({</div>
-                <div style="padding-left: 16px; color: #666;">scale: <span style="color: var(--lime-primary);">"auto"</span>,</div>
-                <div style="padding-left: 16px; color: #666;">region: <span style="color: var(--lime-primary);">"NG-Lagos"</span></div>
-                <div>});</div>
-                <div style="margin-top: 4px;">engine.<span style="color: var(--lime-mid);">deploy</span>();</div>
-              </div>
+            <div class="service-visual-panel" style="background-color: transparent; border: none; border-radius: 12px; max-width: 460px; height: auto;">
+              <img src="images/Web_and_App_Development.svg" alt="Web and App Development" style="width:100%;height:100%;object-fit:contain;display:block;">
             </div>
           </div>
         </div>
@@ -1694,29 +1661,8 @@
             <span class="service-tag">AUTOMATE</span>
           </div>
           <div class="service-visual-side">
-            <div class="service-visual-panel">
-              <!-- Coded multi-stage automation workflow chain -->
-              <div style="font-family: var(--font-mono); font-size: 11px; color: var(--lime-primary); margin-bottom: 16px;">$ pipeline_manager --status</div>
-              
-              <div style="display: flex; flex-direction: column; gap: 12px;">
-                <div style="display: flex; align-items: center; gap: 10px;">
-                  <span style="font-family: var(--font-mono); font-size: 9px; color: #555; width: 60px;">TRIGGER</span>
-                  <div style="background: #111; border: 1px solid rgba(0, 255, 0, 0.15); border-radius: 4px; padding: 6px 12px; font-size: 12px; color: #FFF; flex-grow: 1;">New Lead Form Submitted</div>
-                </div>
-                
-                <div style="display: flex; align-items: center; gap: 10px;">
-                  <span style="font-family: var(--font-mono); font-size: 9px; color: #555; width: 60px;">ACTION</span>
-                  <div style="background: #111; border: 1px solid rgba(0, 255, 0, 0.15); border-radius: 4px; padding: 6px 12px; font-size: 12px; color: var(--lime-primary); flex-grow: 1; display: flex; justify-content: space-between; align-items: center;">
-                    <span>AI Lead Scoring Agent</span>
-                    <span style="font-size: 8px; font-family: var(--font-mono); color: #666;">98% MATCH</span>
-                  </div>
-                </div>
-
-                <div style="display: flex; align-items: center; gap: 10px;">
-                  <span style="font-family: var(--font-mono); font-size: 9px; color: #555; width: 60px;">ROUTING</span>
-                  <div style="background: #111; border: 1px solid rgba(0, 255, 0, 0.15); border-radius: 4px; padding: 6px 12px; font-size: 12px; color: #FFF; flex-grow: 1;">Slack Notification Dispatch</div>
-                </div>
-              </div>
+            <div class="service-visual-panel" style="background-color: transparent; border: none; border-radius: 12px; max-width: 460px; height: auto;">
+              <img src="images/AI_and_Automation.svg" alt="AI and Automation" style="width:100%;height:100%;object-fit:contain;display:block;">
             </div>
           </div>
         </div>
@@ -1901,12 +1847,11 @@
                   <svg width="100%" height="100" viewBox="0 0 400 100" preserveAspectRatio="none" style="display: block; background: #090909;">
                     <defs>
                       <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stop-color="rgba(0,255,0,0.25)"></stop> <!-- Opacity boosted to 0.25 -->
+                        <stop offset="0%" stop-color="rgba(0,255,0,0.25)"></stop>
                         <stop offset="100%" stop-color="rgba(0,255,0,0)"></stop>
                       </linearGradient>
                     </defs>
                     <path d="M 0 90 Q 100 80, 200 45 T 400 10 L 400 100 L 0 100 Z" fill="url(#chartGradient)"></path>
-                    <!-- Thicker stroke-width="4" and active data dots for visibility -->
                     <path d="M 0 90 Q 100 80, 200 45 T 400 10" fill="none" stroke="var(--lime-primary)" stroke-width="4"></path>
                     <circle cx="0" cy="90" r="4.5" fill="var(--lime-primary)"></circle>
                     <circle cx="100" cy="80" r="4.5" fill="var(--lime-primary)"></circle>
@@ -2235,20 +2180,61 @@
     </div>
   </div>
 
-  <!-- Loading scripts safely -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-
   <script>
-    /* Bootstrapping after window load */
-    window.addEventListener('DOMContentLoaded', function() {
-      const hasGsap = typeof gsap !== 'undefined';
+    /* Dynamic sequential loader for libraries to bypass double-slash issues */
+    (function() {
+      const s = 'https:' + '/' + '/';
       
-      if (hasGsap) {
-        gsap.registerPlugin(ScrollTrigger);
-      }
+      /* Load Google Fonts dynamically */
+      const fontLink = document.createElement('link');
+      fontLink.rel = 'stylesheet';
+      fontLink.href = s + 'fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Space+Mono:wght@400;700&display=swap';
+      document.head.appendChild(fontLink);
+      
+      /* Load GSAP script dynamically */
+      const gsapScript = document.createElement('script');
+      gsapScript.src = s + 'cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js';
+      gsapScript.onload = function() {
+        /* Load ScrollTrigger script dynamically once GSAP is ready */
+        const triggerScript = document.createElement('script');
+        triggerScript.src = s + 'cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js';
+        triggerScript.onload = function() {
+          initAnimations();
+        };
+        document.head.appendChild(triggerScript);
+      };
+      document.head.appendChild(gsapScript);
+    })();
 
-      /* Brands list defined with new Array to avoid square brackets */
+    /* Fallback static setup to immediately show final content states if loading fails */
+    window.addEventListener('DOMContentLoaded', function() {
+      setTimeout(function() {
+        if (typeof gsap === 'undefined') {
+          // Immediately populate target stats
+          document.querySelectorAll('.stat-number').forEach(function(stat) {
+            stat.textContent = stat.getAttribute('data-target') + (stat.getAttribute('data-suffix') || '');
+          });
+
+          // Immediately render timeline milestones
+          renderTimelineMilestones();
+          document.querySelectorAll('.timeline-item').forEach(function(item) {
+            item.style.opacity = '1';
+            item.style.transform = 'none';
+          });
+          const line = document.querySelector('.timeline-line');
+          if (line) {
+            line.style.transform = 'translateX(-50%) scaleY(1)';
+          }
+
+          // Immediately display process steps
+          document.querySelectorAll('.process-step').forEach(function(step) {
+            step.style.opacity = '1';
+            step.style.transform = 'none';
+          });
+        }
+      }, 1500);
+
+      // Construct client marquee ticker list
       const brandsList = new Array(
         "Moët & Chandon",
         "Bri" + "tish Co" + "uncil",
@@ -2261,8 +2247,6 @@
         "Workforce Group",
         "Nile University"
       );
-
-      /* Construct seamless marquee ticker track */
       const doubledBrands = brandsList.concat(brandsList);
       const marqueeTrack = document.getElementById('marquee-track');
       if (marqueeTrack) {
@@ -2271,131 +2255,9 @@
           const sep = isNotLast ? ' <span class="logo-separator">·</span> ' : '';
           return '<span class="logo-item">' + brand + '</span>' + sep;
         }).join('');
-
-        if (hasGsap) {
-          const tickerAnimation = gsap.to('.marquee-track', {
-            xPercent: -50,
-            ease: 'none',
-            duration: 25,
-            repeat: -1
-          });
-
-          const tickerContainer = document.getElementById('marquee-container');
-          if (tickerContainer) {
-            tickerContainer.addEventListener('mouseenter', function() {
-              tickerAnimation.pause();
-            });
-            tickerContainer.addEventListener('mouseleave', function() {
-              tickerAnimation.play();
-            });
-          }
-        }
       }
 
-      /* Hero Title word-split entrance animation */
-      const headline = document.querySelector('.hero-headline');
-      if (headline) {
-        const textContent = headline.textContent.trim();
-        const words = textContent.split(' ');
-        
-        headline.innerHTML = words.map(function(word) {
-          const isLime = word.includes('African') || word.includes('businesses');
-          const cssClass = isLime ? ' class="text-lime"' : '';
-          return '<span style="display: inline-block; overflow: hidden;"><span' + cssClass + ' style="display: inline-block; opacity: 0; transform: translateY(40px);">' + word + '</span></span>';
-        }).join(' ');
-
-        if (hasGsap) {
-          gsap.to('.hero-headline span span', {
-            opacity: 1,
-            y: 0,
-            stagger: 0.08,
-            duration: 0.7,
-            ease: 'power3.out'
-          });
-        } else {
-          document.querySelectorAll('.hero-headline span span').forEach(function(el) {
-            el.style.opacity = '1';
-            el.style.transform = 'none';
-          });
-        }
-      }
-
-      /* Hero Stats counter animation with fallback */
-      document.querySelectorAll('.stat-number').forEach(function(stat) {
-        const targetVal = parseFloat(stat.getAttribute('data-target'));
-        const suffix = stat.getAttribute('data-suffix') || '';
-
-        if (hasGsap) {
-          const obj = { val: 0 };
-          gsap.to(obj, {
-            val: targetVal,
-            duration: 2,
-            ease: 'power2.out',
-            onUpdate: function() {
-              const isFloat = targetVal % 1 !== 0;
-              if (isFloat) {
-                stat.textContent = obj.val.toFixed(2) + suffix;
-              } else {
-                stat.textContent = Math.floor(obj.val) + suffix;
-              }
-            }
-          });
-        } else {
-          /* Fallback value when offline or CDN is blocked */
-          stat.textContent = targetVal + suffix;
-        }
-      });
-
-      /* Services visuals: alternating entrance animation */
-      if (hasGsap) {
-        gsap.utils.toArray('.service-row').forEach(function(row) {
-          gsap.from(row, {
-            scrollTrigger: {
-              trigger: row,
-              start: 'top 80%',
-              toggleActions: 'play none none none'
-            },
-            opacity: 0,
-            y: 30,
-            duration: 0.7,
-            ease: 'power2.out'
-          });
-        });
-      }
-
-      /* Staggered Case Studies entrance */
-      if (hasGsap) {
-        gsap.from('.case-study-card', {
-          scrollTrigger: {
-            trigger: '.case-grid',
-            start: 'top 80%',
-            toggleActions: 'play none none none'
-          },
-          opacity: 0,
-          y: 30,
-          stagger: 0.1,
-          duration: 0.7,
-          ease: 'power2.out'
-        });
-      }
-
-      /* Staggered Process steps entrance */
-      if (hasGsap) {
-        gsap.from('.process-step', {
-          scrollTrigger: {
-            trigger: '.process-grid',
-            start: 'top 80%',
-            toggleActions: 'play none none none'
-          },
-          opacity: 0,
-          y: 30,
-          stagger: 0.1,
-          duration: 0.7,
-          ease: 'power2.out'
-        });
-      }
-
-      /* Interactive Demo Screen Switching */
+      // Setup static demo cycle
       let currentScreen = 0;
       const demoScreens = document.querySelectorAll('.demo-screen');
       const demoTabs = document.querySelectorAll('.demo-tab');
@@ -2432,86 +2294,17 @@
         });
       });
 
-      /* Dynamic loading of milestones timeline list */
-      const milestonesData = new Array(
-        { year: "2019", title: "Founded", desc: "Monospace Digital established in Lekki, Lagos." },
-        { year: "2020", title: "First Campaigns", desc: "First major performance marketing campaigns launched." },
-        { year: "2021", title: "Development Practice", desc: "Web and app development practice officially added." },
-        { year: "2022", title: "Data & AI", desc: "AI and data analytics services integrated." },
-        { year: "2023", title: "Major Clients", desc: "Amazon Prime Video and Paga campaigns delivered." },
-        { year: "2024", title: "Pan-African", desc: "Client base expanded — WHO, Bri" + "tish Co" + "uncil, and more." },
-        { year: "2025", title: "AI Automation", desc: "Full AI automation practice launched." },
-        { year: "2026", title: "Full Stack", desc: "Complete digital growth agency serving 10+ major brands." }
-      );
-
-      const timelineList = document.getElementById('timeline-list');
-      if (timelineList) {
-        timelineList.innerHTML = milestonesData.map(function(item) {
-          return '<div class="timeline-item"><span class="timeline-connector"></span><div class="timeline-year">' + item.year + '</div><h3 class="timeline-title">' + item.title + '</h3><p class="timeline-desc">' + item.desc + '</p></div>';
-        }).join('');
-
-        /* Setup active highlight animations on timeline milestones */
-        if (hasGsap) {
-          gsap.utils.toArray('.timeline-item').forEach(function(item, idx) {
-            const isEven = idx % 2 === 0;
-            const xOffset = isEven ? -30 : 30;
-
-            gsap.from(item, {
-              scrollTrigger: {
-                trigger: item,
-                start: 'top 85%',
-                toggleActions: 'play none none none'
-              },
-              opacity: 0,
-              x: xOffset,
-              duration: 0.6
-            });
-          });
-        } else {
-          /* Fallback for timeline visibility */
-          document.querySelectorAll('.timeline-item').forEach(function(item) {
-            item.style.opacity = '1';
-            item.style.transform = 'none';
-          });
-        }
-      }
-
-      /* Grow timeline vertical line on scroll */
-      if (hasGsap) {
-        gsap.fromTo('.timeline-line', 
-          { scaleY: 0 },
-          {
-            scaleY: 1,
-            scrollTrigger: {
-              trigger: '.timeline-container',
-              start: 'top 30%',
-              end: 'bottom 80%',
-              scrub: true
-            }
-          }
-        );
-      } else {
-        /* Fallback for line if GSAP is offline */
-        const timelineLine = document.querySelector('.timeline-line');
-        if (timelineLine) {
-          timelineLine.style.transform = 'translateX(-50%) scaleY(1)';
-        }
-      }
-
-      /* Hover Effects: 3D Tilts and Magnetic Glow */
+      // 3D Tilt interactive effects
       if (window.matchMedia('(hover: hover)').matches) {
-        /* Hero 3D visual wrapper mouse tilt */
         const heroRightCol = document.querySelector('.hero-right-col');
         const visualWrapper = document.querySelector('.visual-wrapper-3d');
         if (heroRightCol && visualWrapper) {
           heroRightCol.addEventListener('mousemove', function(e) {
             const rect = heroRightCol.getBoundingClientRect();
-            const width = rect.width;
-            const height = rect.height;
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
-            const rotateX = -((y - height / 2) / height) * 20;
-            const rotateY = ((x - width / 2) / width) * 20;
+            const rotateX = -((y - rect.height / 2) / rect.height) * 20;
+            const rotateY = ((x - rect.width / 2) / rect.width) * 20;
             visualWrapper.style.transform = 'perspective(1200px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg)';
           });
           heroRightCol.addEventListener('mouseleave', function() {
@@ -2519,16 +2312,13 @@
           });
         }
 
-        /* 3D card tilt for service visual panels */
         document.querySelectorAll('.service-visual-panel').forEach(function(panel) {
           panel.addEventListener('mousemove', function(e) {
             const rect = panel.getBoundingClientRect();
-            const width = rect.width;
-            const height = rect.height;
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
-            const rotateX = -((y - height / 2) / height) * 12;
-            const rotateY = ((x - width / 2) / width) * 12;
+            const rotateX = -((y - rect.height / 2) / rect.height) * 12;
+            const rotateY = ((x - rect.width / 2) / rect.width) * 12;
             panel.style.transform = 'perspective(800px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg)';
           });
           panel.addEventListener('mouseleave', function() {
@@ -2536,7 +2326,6 @@
           });
         });
 
-        /* Magnetic Mouse Follower Glow */
         document.querySelectorAll('.case-study-card, .service-visual-panel, .visual-dashboard-card').forEach(function(card) {
           card.addEventListener('mousemove', function(e) {
             const rect = card.getBoundingClientRect();
@@ -2549,7 +2338,162 @@
       }
     });
 
-    /* Open/Close Privacy/Terms sliding sheets */
+    // Helper functions
+    function renderTimelineMilestones() {
+      const milestonesData = new Array(
+        { year: "2019", title: "Founded", desc: "Monospace Digital established in Lekki, Lagos." },
+        { year: "2020", title: "First Campaigns", desc: "First major performance marketing campaigns launched." },
+        { year: "2021", title: "Development Practice", desc: "Web and app development practice officially added." },
+        { year: "2022", title: "Data & AI", desc: "AI and data analytics services integrated." },
+        { year: "2023", title: "Major Clients", desc: "Amazon Prime Video and Paga campaigns delivered." },
+        { year: "2024", title: "Pan-African", desc: "Client base expanded — WHO, Bri" + "tish Co" + "uncil, and more." },
+        { year: "2025", title: "AI Automation", desc: "Full AI automation practice launched." },
+        { year: "2026", title: "Full Stack", desc: "Complete digital growth agency serving 10+ major brands." }
+      );
+      const list = document.getElementById('timeline-list');
+      if (list && list.children.length === 0) {
+        list.innerHTML = milestonesData.map(function(item) {
+          return '<div class="timeline-item"><span class="timeline-connector"></span><div class="timeline-year">' + item.year + '</div><h3 class="timeline-title">' + item.title + '</h3><p class="timeline-desc">' + item.desc + '</p></div>';
+        }).join('');
+      }
+    }
+
+    /* Core animation bootstrap using GSAP & ScrollTrigger once loaded */
+    function initAnimations() {
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Ticker marquee looping
+      const tickerAnimation = gsap.to('.marquee-track', {
+        xPercent: -50,
+        ease: 'none',
+        duration: 25,
+        repeat: -1
+      });
+      const tickerContainer = document.getElementById('marquee-container');
+      if (tickerContainer) {
+        tickerContainer.addEventListener('mouseenter', function() { tickerAnimation.pause(); });
+        tickerContainer.addEventListener('mouseleave', function() { tickerAnimation.play(); });
+      }
+
+      // Hero title splitting word animation
+      const headline = document.querySelector('.hero-headline');
+      if (headline) {
+        const textContent = headline.textContent.trim();
+        const words = textContent.split(' ');
+        headline.innerHTML = words.map(function(word) {
+          const isLime = word.includes('African') || word.includes('businesses');
+          const cssClass = isLime ? ' class="text-lime"' : '';
+          return '<span style="display: inline-block; overflow: hidden;"><span' + cssClass + ' style="display: inline-block; opacity: 0; transform: translateY(40px);">' + word + '</span></span>';
+        }).join(' ');
+
+        gsap.to('.hero-headline span span', {
+          opacity: 1,
+          y: 0,
+          stagger: 0.08,
+          duration: 0.7,
+          ease: 'power3.out'
+        });
+      }
+
+      // Stats counters animation
+      document.querySelectorAll('.stat-number').forEach(function(stat) {
+        const targetVal = parseFloat(stat.getAttribute('data-target'));
+        const suffix = stat.getAttribute('data-suffix') || '';
+        const obj = { val: 0 };
+        gsap.to(obj, {
+          val: targetVal,
+          duration: 2,
+          ease: 'power2.out',
+          onUpdate: function() {
+            const isFloat = targetVal % 1 !== 0;
+            stat.textContent = (isFloat ? obj.val.toFixed(2) : Math.floor(obj.val)) + suffix;
+          }
+        });
+      });
+
+      // Services slide-up staggered transition
+      gsap.utils.toArray('.service-row').forEach(function(row) {
+        gsap.from(row, {
+          scrollTrigger: {
+            trigger: row,
+            start: 'top 80%',
+            toggleActions: 'play none none none'
+          },
+          opacity: 0,
+          y: 35,
+          duration: 0.7,
+          ease: 'power2.out'
+        });
+      });
+
+      // Case Studies staggered transition
+      gsap.from('.case-study-card', {
+        scrollTrigger: {
+          trigger: '.case-grid',
+          start: 'top 80%',
+          toggleActions: 'play none none none'
+        },
+        opacity: 0,
+        y: 40,
+        stagger: 0.1,
+        duration: 0.7,
+        ease: 'power2.out'
+      });
+
+      // Process steps staggered transition
+      gsap.from('.process-step', {
+        scrollTrigger: {
+          trigger: '.process-grid',
+          start: 'top 80%',
+          toggleActions: 'play none none none'
+        },
+        opacity: 0,
+        y: 30,
+        stagger: 0.1,
+        duration: 0.7,
+        ease: 'power2.out'
+      });
+
+      // Dynamically load milestones timeline list & animate items
+      renderTimelineMilestones();
+      
+      // Animate timeline milestones from left/right sides
+      gsap.utils.toArray('.timeline-item').forEach(function(item, idx) {
+        const isEven = idx % 2 === 0;
+        const xOffset = isEven ? -40 : 40;
+
+        gsap.to(item, {
+          scrollTrigger: {
+            trigger: item,
+            start: 'top 85%',
+            toggleActions: 'play none none none'
+          },
+          opacity: 1,
+          x: 0,
+          duration: 0.7,
+          ease: 'power2.out'
+        });
+        
+        // Initial setup via GSAP to ensure smooth start
+        gsap.set(item, { x: xOffset });
+      });
+
+      // Timeline central line growing vertically on page scroll
+      gsap.fromTo('.timeline-line', 
+        { scaleY: 0 },
+        {
+          scaleY: 1,
+          scrollTrigger: {
+            trigger: '.timeline-container',
+            start: 'top 30%',
+            end: 'bottom 80%',
+            scrub: true
+          }
+        }
+      );
+    }
+
+    // Policy sheets interaction
     function openPolicy(type) {
       const sheetId = type === 'privacy' ? 'privacy-policy' : 'terms-conditions';
       const sheet = document.getElementById(sheetId);
