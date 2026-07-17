@@ -20,16 +20,16 @@
       --lime-deep: #00CC00;
       
       --text-primary: #F0F0F0;
-      --text-secondary: #666666;
+      --text-secondary: #888888;
       --text-muted: #555555;
       --text-dark: #333333;
-      --text-deep-dark: #2A2A2A;
+      --text-deep-dark: #222222;
       
-      --border-light: rgba(0, 255, 0, 0.06);
-      --border-mid: rgba(0, 255, 0, 0.12);
-      --border-deep: rgba(0, 255, 0, 0.20);
-      --border-subtle: rgba(255, 255, 255, 0.04);
-      --border-subtle-hover: rgba(0, 255, 0, 0.15);
+      --border-light: rgba(0, 255, 0, 0.05);
+      --border-mid: rgba(0, 255, 0, 0.10);
+      --border-deep: rgba(0, 255, 0, 0.18);
+      --border-subtle: rgba(255, 255, 255, 0.03);
+      --border-subtle-hover: rgba(0, 255, 0, 0.12);
       
       --font-sans: 'Space Grotesk', sans-serif;
       --font-mono: 'Space Mono', monospace;
@@ -278,9 +278,9 @@
       background-color: rgba(0, 255, 0, 0.08);
     }
 
-    /* Hero Section */
+    /* Hero Section with Charcoal Gradient overlay */
     .hero-section {
-      background-color: var(--bg-dark-1);
+      background: radial-gradient(circle at 80% 20%, #161616 0%, #0D0D0D 40%, var(--bg-dark-1) 100%);
       min-height: 100vh;
       display: flex;
       align-items: center;
@@ -326,33 +326,11 @@
       max-width: 600px;
     }
 
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      background: rgba(0, 255, 0, 0.04);
-      border: 1px solid rgba(0, 255, 0, 0.10);
-      border-radius: 100px;
-      padding: 5px 16px;
-      font-size: 11px;
-      color: var(--text-secondary);
-      margin-bottom: 28px;
-      font-family: var(--font-mono);
-    }
-
-    .hero-badge-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background-color: var(--lime-primary);
-      margin-right: 8px;
-      display: inline-block;
-    }
-
     .hero-headline {
       font-size: clamp(3rem, 6vw, 5.5rem);
       font-weight: 800;
       line-height: 1.05;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
       letter-spacing: -0.04em;
     }
 
@@ -361,6 +339,7 @@
       line-height: 1.72;
       margin-bottom: 32px;
       max-width: 460px;
+      color: #999999;
     }
 
     .hero-actions {
@@ -442,7 +421,7 @@
     .logos-label {
       font-family: var(--font-mono);
       font-size: 11px;
-      color: var(--text-dark);
+      color: var(--text-muted);
       letter-spacing: 0.15em;
       text-align: center;
       margin-bottom: 28px;
@@ -466,7 +445,7 @@
       font-family: var(--font-mono);
       font-weight: 700;
       font-size: 12px;
-      color: var(--text-deep-dark);
+      color: #2F2F2F;
       letter-spacing: 0.10em;
       text-transform: uppercase;
       transition: color 150ms ease;
@@ -478,12 +457,12 @@
     }
 
     .logo-separator {
-      color: #1A1A1A;
+      color: #161616;
     }
 
     /* Quote Section */
     .quote-section {
-      background-color: var(--bg-dark-2);
+      background: linear-gradient(180deg, var(--bg-dark-1) 0%, #0E0E0E 50%, var(--bg-dark-1) 100%);
       padding: 120px 2rem;
       border-top: 1px solid rgba(0, 255, 0, 0.05);
       border-bottom: 1px solid rgba(0, 255, 0, 0.05);
@@ -525,7 +504,7 @@
 
     /* Services Section */
     .services-section {
-      background-color: var(--bg-dark-1);
+      background: radial-gradient(circle at 20% 50%, #161616 0%, #0D0D0D 60%, var(--bg-dark-1) 100%);
       padding: 140px 2rem;
     }
 
@@ -550,7 +529,7 @@
 
     .section-subtext {
       font-size: 16px;
-      color: var(--text-secondary);
+      color: #999999;
       max-width: 500px;
       margin-bottom: 80px;
     }
@@ -607,7 +586,7 @@
 
     .service-desc {
       font-size: 16px;
-      color: var(--text-secondary);
+      color: #888888;
       line-height: 1.72;
       margin-bottom: 20px;
     }
@@ -631,7 +610,7 @@
       width: 100%;
       max-width: 420px;
       height: 240px;
-      background-color: #0F0F0F;
+      background-color: #121212;
       border: 1px solid var(--border-light);
       border-radius: 12px;
       padding: 24px;
@@ -652,13 +631,13 @@
     .code-mockup-line {
       font-family: var(--font-mono);
       font-size: 11px;
-      color: var(--text-secondary);
+      color: #777777;
       margin-bottom: 6px;
     }
 
     /* Demo Section */
     .demo-section {
-      background-color: var(--bg-dark-3);
+      background: linear-gradient(180deg, var(--bg-dark-1) 0%, var(--bg-dark-3) 100%);
       padding: 140px 2rem;
     }
 
@@ -688,7 +667,7 @@
     }
 
     .demo-bullet-item {
-      color: var(--text-secondary);
+      color: #999999;
       font-size: 15px;
     }
 
@@ -699,7 +678,7 @@
 
     .browser-mockup {
       width: 100%;
-      background-color: #111111;
+      background-color: #141414;
       border: 1px solid var(--border-light);
       border-radius: 12px;
       box-shadow: 0 60px 120px rgba(0, 0, 0, 0.8);
@@ -709,7 +688,7 @@
 
     .browser-header {
       height: 38px;
-      background-color: var(--bg-dark-3);
+      background-color: #0E0E0E;
       display: flex;
       align-items: center;
       padding: 0 14px;
@@ -728,7 +707,7 @@
     }
 
     .browser-address-bar {
-      background-color: #0F0F0F;
+      background-color: #080808;
       border-radius: 4px;
       height: 22px;
       flex: 1;
@@ -741,7 +720,7 @@
     .browser-address-text {
       font-family: var(--font-mono);
       font-size: 10px;
-      color: var(--text-dark);
+      color: #444444;
     }
 
     .browser-content {
@@ -800,7 +779,7 @@
       margin-top: 14px;
     }
     .analytics-tile {
-      background-color: #0F0F0F;
+      background-color: #121212;
       border-radius: 6px;
       padding: 12px 14px;
       border: 1px solid var(--border-light);
@@ -827,7 +806,7 @@
       margin-top: auto;
       font-family: var(--font-mono);
       font-size: 10px;
-      color: var(--text-dark);
+      color: #444444;
     }
 
     /* Screen 2 styling */
@@ -872,7 +851,7 @@
       max-width: 70%;
     }
     .chat-bubble.user {
-      background-color: #141414;
+      background-color: #181818;
       border-radius: 8px 8px 2px 8px;
       align-self: flex-end;
       color: #CCCCCC;
@@ -990,7 +969,7 @@
 
     /* Case Studies */
     .case-studies {
-      background-color: var(--bg-dark-2);
+      background: radial-gradient(circle at 50% 50%, #181818 0%, #0D0D0D 70%, var(--bg-dark-1) 100%);
       padding: 140px 2rem;
     }
 
@@ -1007,7 +986,7 @@
     }
 
     .case-study-card {
-      background-color: #0F0F0F;
+      background-color: #121212;
       border: 1px solid var(--border-subtle);
       border-radius: 14px;
       padding: 32px;
@@ -1044,7 +1023,7 @@
 
     .case-study-desc {
       font-size: 15px;
-      color: var(--text-secondary);
+      color: #999999;
       line-height: 1.7;
     }
 
@@ -1063,13 +1042,13 @@
     .case-study-metric-label {
       font-family: var(--font-mono);
       font-size: 12px;
-      color: var(--text-dark);
+      color: var(--text-muted);
       margin-top: 4px;
     }
 
     /* Timeline Section */
     .timeline-section {
-      background-color: var(--bg-dark-1);
+      background: linear-gradient(180deg, var(--bg-dark-2) 0%, var(--bg-dark-1) 100%);
       padding: 140px 2rem;
     }
 
@@ -1177,7 +1156,7 @@
 
     /* Process Section */
     .process-section {
-      background-color: var(--bg-dark-3);
+      background: radial-gradient(circle at top left, #141414 0%, #0D0D0D 60%, var(--bg-dark-1) 100%);
       padding: 140px 2rem;
     }
 
@@ -1223,7 +1202,7 @@
 
     /* Testimonial Section */
     .testimonial-section {
-      background-color: var(--bg-dark-2);
+      background-color: #0E0E0E;
       padding: 140px 2rem;
       text-align: center;
     }
@@ -1253,7 +1232,7 @@
 
     /* Closing CTA Section */
     .closing-cta-section {
-      background-color: var(--bg-dark-1);
+      background: radial-gradient(circle at center, #181818 0%, #0D0D0D 60%, var(--bg-dark-1) 100%);
       padding: 160px 2rem;
       text-align: center;
       position: relative;
@@ -1289,7 +1268,7 @@
 
     .cta-subheadline {
       font-size: 17px;
-      color: var(--text-secondary);
+      color: #999999;
       margin-top: 16px;
     }
 
@@ -1514,10 +1493,6 @@
     
     <div class="container hero-container">
       <div class="hero-content">
-        <div class="hero-badge">
-          <span class="hero-badge-dot"></span>
-          Technology · Marketing · AI · Data — Lekki, Lagos
-        </div>
         <h1 class="hero-headline">
           The growth engine for <span class="text-lime">African businesses.</span>
         </h1>
@@ -1869,7 +1844,7 @@
           </div>
           <div style="position: relative; z-index: 1;">
             <hr class="case-study-divider" />
-            <div class="case-study-metric" style="color: #00E600;">🌍</div>
+            <div class="case-study-metric" style="color: #00E600; font-family: var(--font-mono); font-size: 32px; font-weight: 800;">PAN</div>
             <div class="case-study-metric-label">Pan-African reach</div>
           </div>
         </div>
