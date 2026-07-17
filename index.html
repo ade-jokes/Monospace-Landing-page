@@ -1168,8 +1168,20 @@
 
     /* Process Section */
     .process-section {
-      background: radial-gradient(circle at top left, #141414 0%, #0D0D0D 60%, var(--bg-dark-1) 100%);
+      background: radial-gradient(circle at 50% 50%, #161616 0%, #080808 100%);
       padding: 140px 2rem;
+      position: relative;
+    }
+
+    .process-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(0, 255, 0, 0.08) 1.2px, transparent 1.2px);
+      background-size: 32px 32px;
+      opacity: 0.25;
+      pointer-events: none;
+      z-index: 0;
     }
 
     .process-grid {
@@ -1177,6 +1189,8 @@
       grid-template-columns: 1fr;
       gap: 40px;
       margin-top: 80px;
+      position: relative;
+      z-index: 1;
     }
 
     @media (min-width: 768px) {
@@ -1192,7 +1206,6 @@
       padding: 32px;
       position: relative;
       overflow: hidden;
-      opacity: 0; /* Animated via GSAP scroll trigger */
       transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1), border-color 200ms ease;
       cursor: pointer;
     }
@@ -1945,7 +1958,8 @@
 
   <!-- Process Section -->
   <section id="process" class="process-section">
-    <div class="container">
+    <div style="position: absolute; width: 600px; height: 600px; background: radial-gradient(circle, rgba(0, 255, 0, 0.05), transparent); top: 50%; left: 50%; transform: translate(-50%, -50%); filter: blur(100px); pointer-events: none; z-index: 0;"></div>
+    <div class="container" style="position: relative; z-index: 1;">
       <span class="section-label-lime">HOW WE WORK</span>
       <h2 class="section-headline">Simple process. Measurable results.</h2>
       
