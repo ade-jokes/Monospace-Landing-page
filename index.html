@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Monospace Digital — The growth engine for African businesses</title>
   
+  <!-- Fonts: Space Grotesk & Space Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  
   <style>
     /* Base configuration CSS variables */
     :root {
@@ -461,12 +466,12 @@
       color: #161616;
     }
 
-    /* Quote Section */
+    /* Quote Section (LIGHT THEME) */
     .quote-section {
-      background: linear-gradient(180deg, var(--bg-dark-1) 0%, #0E0E0E 50%, var(--bg-dark-1) 100%);
+      background-color: #FFFFFF;
       padding: 120px 2rem;
-      border-top: 1px solid rgba(0, 255, 0, 0.05);
-      border-bottom: 1px solid rgba(0, 255, 0, 0.05);
+      border-top: 1px solid #E5E7EB;
+      border-bottom: 1px solid #E5E7EB;
       text-align: center;
     }
 
@@ -479,7 +484,7 @@
       font-family: var(--font-mono);
       font-weight: 700;
       font-size: 72px;
-      color: var(--lime-primary);
+      color: #00AA00;
       line-height: 0.8;
       margin-bottom: 4px;
       display: inline-block;
@@ -490,14 +495,14 @@
       font-weight: 700;
       font-style: italic;
       font-size: 26px;
-      color: var(--text-primary);
+      color: #0F172A;
       line-height: 1.38;
     }
 
     .quote-attribution {
       font-family: var(--font-mono);
       font-size: 12px;
-      color: var(--text-dark);
+      color: #64748B;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       margin-top: 36px;
@@ -644,10 +649,12 @@
       margin-bottom: 6px;
     }
 
-    /* Demo Section */
+    /* Demo Section (LIGHT THEME) */
     .demo-section {
-      background: linear-gradient(180deg, var(--bg-dark-1) 0%, var(--bg-dark-3) 100%);
+      background-color: #F8FAFC;
       padding: 140px 2rem;
+      border-top: 1px solid #E2E8F0;
+      border-bottom: 1px solid #E2E8F0;
     }
 
     .demo-container {
@@ -667,6 +674,10 @@
       max-width: 440px;
     }
 
+    .demo-left .section-headline {
+      color: #0F172A;
+    }
+
     .demo-bullets {
       list-style: none;
       margin-top: 24px;
@@ -676,8 +687,9 @@
     }
 
     .demo-bullet-item {
-      color: #999999;
+      color: #334155;
       font-size: 15px;
+      font-weight: 500;
     }
 
     .browser-wrapper {
@@ -687,21 +699,21 @@
 
     .browser-mockup {
       width: 100%;
-      background-color: #141414;
-      border: 1px solid var(--border-light);
+      background-color: #FFFFFF;
+      border: 1px solid #CBD5E1;
       border-radius: 12px;
-      box-shadow: 0 60px 120px rgba(0, 0, 0, 0.8);
+      box-shadow: 0 30px 60px rgba(15, 23, 42, 0.12);
       transform: rotateX(6deg) rotateY(-4deg);
       overflow: hidden;
     }
 
     .browser-header {
       height: 38px;
-      background-color: #0E0E0E;
+      background-color: #F1F5F9;
       display: flex;
       align-items: center;
       padding: 0 14px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      border-bottom: 1px solid #E2E8F0;
     }
 
     .browser-controls {
@@ -716,7 +728,8 @@
     }
 
     .browser-address-bar {
-      background-color: #080808;
+      background-color: #FFFFFF;
+      border: 1px solid #E2E8F0;
       border-radius: 4px;
       height: 22px;
       flex: 1;
@@ -729,7 +742,7 @@
     .browser-address-text {
       font-family: var(--font-mono);
       font-size: 10px;
-      color: #444444;
+      color: #64748B;
     }
 
     .browser-content {
@@ -1261,10 +1274,12 @@
       z-index: 1;
     }
 
-    /* Testimonial Section */
+    /* Testimonial Section (LIGHT THEME) */
     .testimonial-section {
-      background-color: #0E0E0E;
+      background-color: #FFFFFF;
       padding: 140px 2rem;
+      border-top: 1px solid #E5E7EB;
+      border-bottom: 1px solid #E5E7EB;
       text-align: center;
     }
 
@@ -1277,7 +1292,7 @@
       font-family: var(--font-sans);
       font-size: 21px;
       font-style: italic;
-      color: #CCCCCC;
+      color: #0F172A;
       line-height: 1.68;
     }
 
@@ -1285,7 +1300,7 @@
       font-family: var(--font-mono);
       font-weight: 400;
       font-size: 12px;
-      color: var(--text-dark);
+      color: #64748B;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       margin-top: 28px;
